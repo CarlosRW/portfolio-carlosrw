@@ -1,0 +1,35 @@
+# --- FRONTEND (React / Vite / Tailwind) ---
+client/node_modules/
+client/dist/
+client/dist-ssr/
+client/*.local
+client/.vscode/
+client/npm-debug.log*
+client/yarn-debug.log*
+client/yarn-error.log*
+
+# --- BACKEND (C# / .NET) ---
+[Bb]in/
+[Oo]bj/
+server/.vs/
+server/appsettings.Development.json
+server/appsettings.json
+*.user
+*.userosscache
+*.sln.docstates
+
+# --- SEGURIDAD Y SECRETOS ---
+# Importante para: [cite: 5, 51, 81]
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+**/*.pem
+**/*.key
+**/*.pfx
+
+# --- SISTEMA ---
+.DS_Store
+Thumbs.db
+desktop.ini
