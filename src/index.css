@@ -62,4 +62,55 @@
   nav a {
     white-space: nowrap;
   }
+
+  /* --- Personalización de Swiper para el Portafolio --- */
+
+/* 1. Color de las flechas de navegación (Morado) */
+.project-swiper-container .swiper-button-next,
+.project-swiper-container .swiper-button-prev {
+  color: #6c34d3 !class; /* Tu main-purple */
+  background: rgba(26, 23, 35, 0.5); /* Fondo sutil oscuro */
+  padding: 25px;
+  border-radius: 50%;
+  transform: scale(0.6); /* Flechas más pequeñas */
+  transition: all 0.3s ease;
+  opacity: 0; /* Ocultas por defecto */
+}
+
+/* 2. Mostrar flechas solo al hacer hover en la tarjeta */
+.group:hover .project-swiper-container .swiper-button-next,
+.group:hover .project-swiper-container .swiper-button-prev {
+  opacity: 1;
+}
+
+/* 3. Color de los puntos de paginación (Morado) */
+.project-swiper-container .swiper-pagination-bullet {
+  background: rgba(233, 219, 246, 0.5); /* text-purple con opacidad */
+}
+
+.project-swiper-container .swiper-pagination-bullet-active {
+  background: #6c34d3; /* Tu main-purple activo */
+  box-shadow: 0 0 10px rgba(108, 52, 211, 0.8);
+}
+
+/* Asegurar que el badge esté por encima de todo */
+.project-swiper-container .absolute.z-30 {
+  z-index: 30;
+}
+/* Clase de utilidad para el texto con gradiente */
+.gradient-text {
+  background: linear-gradient(to bottom, #a27dfa, #6c34d3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block; /* Asegura que el gradiente se aplique correctamente */
+  filter: drop-shadow(0 0 10px rgba(162, 125, 250, 0.3));
+}
+
+/* Aplicación automática a todos los títulos de sección (h2) */
+section h2 span {
+  background: linear-gradient(to bottom, #a27dfa, #6c34d3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
 }

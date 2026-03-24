@@ -17,7 +17,7 @@ const Services = () => {
       description: 'Diseño de experiencias interactivas y mecánicas de juego "cozy" utilizando motores como Godot y Unity.',
       techStack: ['Godot', 'Unity', 'C#', 'GDScript']
     },
-{
+    {
       title: 'AI & Machine Learning',
       description: 'Integración de modelos de IA y automatización de procesos para optimizar la experiencia del usuario y la eficiencia de datos.',
       techStack: ['Groq AI', 'Gemini', 'Python']
@@ -27,9 +27,10 @@ const Services = () => {
   return (
     <section className="min-h-screen bg-secondary-purple/5 py-32 px-[7%] flex flex-col items-center" id="services">
       <div className="text-center mb-24">
-        <h2 className="text-[5.5rem] md:text-[7rem] font-bold text-text-purple">
-          Mis <span className="text-main-purple">Servicios</span>
+        <h2 className="text-[5.5rem] md:text-[7.5rem] font-bold text-text-purple">
+          Mis <span className="gradient-text">Servicios</span>
         </h2>
+        <div className="w-[12rem] h-[5px] bg-main-purple mx-auto mt-4 rounded-full"></div>
         <p className="text-[2rem] text-text-purple/70 mt-6 font-medium">
           Diseñando soluciones digitales escalables y modernas.
         </p>
