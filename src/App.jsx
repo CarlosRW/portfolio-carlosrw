@@ -6,8 +6,8 @@ import Skills from './components/Skills';
 import Services from './components/Services';
 import Projects from './components/Projects';
 import Journey from './components/Journey';
-// import Contact from './components/Contact';
-// import Footer from './components/Footer';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -20,8 +20,8 @@ function App() {
         <Skills />
         <Projects />
         <Journey />
-        {/* <Contact /> */}
-        {/* <Footer /> */}
+        <Contact /> 
+        <Footer />
       </main>
     </div>
   );
