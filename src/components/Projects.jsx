@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// Importamos Swiper React components y estilos
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
@@ -12,7 +11,6 @@ const Projects = () => {
   const [filter, setFilter] = useState('Todos');
   const [visibleCount, setVisibleCount] = useState(3);
 
-  // --- TUS DATOS DE PROYECTOS (Actualizados con webp) ---
   const projectsData = [
     {
       id: 1,
@@ -35,7 +33,7 @@ const Projects = () => {
       category: 'Destacados',
       badge: 'Proyecto Personal',
       type: 'Full-Stack Development',
-      description: 'Sitio web de restaurante con diseño moderno, menú interactivo y sistema de pedidos integrado con WhatsApp. Experiencia de usuario optimizada.',
+      description: 'Sitio web de restaurante con diseño moderno, menú interactivo y sistema de pedidos integrado con WhatsApp.',
       techStack: ['React', 'JavaScript', 'Node.js'],
       images: [
         { src: '/assets/projects/pizza-1.webp' },
@@ -46,16 +44,16 @@ const Projects = () => {
     },
     {
       id: 3,
-      title: '',
+      title: 'AgroDirectoCR',
       category: 'Universidad',
       badge: 'Universidad',
-      type: '',
-      description: '.',
-      techStack: [''],
+      type: 'Proyecto Universitario',
+      description: 'Plataforma web para conectar directamente a productores agrícolas con consumidores finales en Costa Rica.',
+      techStack: ['HTML', 'CSS', 'Bootstrap', 'PHP', 'MySQL'],
       images: [
-        { src: '/assets/projects/ml-1.webp' }
+        { src: '/assets/projects/AgroDirecto-1.webp' }
       ],
-      githubRepo: 'https://github.com/CarlosRW/',
+      githubRepo: 'https://github.com/CarlosRW/AgroDirectoCR',
     },
     {
       id: 4,
@@ -63,31 +61,30 @@ const Projects = () => {
       category: 'Juegos',
       badge: 'Videojuego',
       type: 'Game Jam Project',
-      description: 'Videojuego desarrollado para Bread Jam 2, inspirado en Fruit Ninja, con scoreboard y sistema de puntuación. Completado en 48 horas con Godot Engine.',
+      description: 'Videojuego inspirado en Fruit Ninja, con scoreboard y sistema de puntuación. Hecho en 48 horas con Godot.',
       techStack: ['Godot Engine', 'GDScript', 'Aseprite'],
       images: [
-        { src: '/assets/projects/sandwich-1.webp' },
-        { src: '/assets/projects/sandwich-2.webp' }
+        { src: '/assets/projects/bread-1.webp' },
+        { src: '/assets/projects/bread-2.webp' }
       ],
       liveDemo: 'https://skycito23.itch.io/spread-the-bread',
     },
     {
-      id: 4,
+      id: 5,
       title: 'Paws Together',
       category: 'Juegos',
       badge: 'Videojuego',
       type: 'Game Jam Project',
-      description: 'Videojuego cooperativo de plataformas y puzles para dos jugadores, centrado en el trabajo en equipo, la comunicación y la conexión entre ambos personajes. Combinando habilidades para superar trampas, resolver niveles y avanzar juntos.',
+      description: 'Videojuego cooperativo de plataformas y puzles centrado en el trabajo en equipo y la comunicación.',
       techStack: ['Godot Engine', 'GDScript', 'Aseprite'],
       images: [
-        { src: '/assets/projects/sandwich-1.webp' },
-        { src: '/assets/projects/sandwich-2.webp' }
+        { src: '/assets/projects/Paws-Together-1.webp' },
+        { src: '/assets/projects/Paws-Together-2.webp' }
       ],
       liveDemo: 'https://skycito23.itch.io/paws-together',
     },
   ];
 
-  // Lógica de Filtrado y "Ver más" 
   const filteredProjects = filter === 'Todos'
     ? projectsData
     : projectsData.filter(p => p.category === filter);
@@ -96,7 +93,7 @@ const Projects = () => {
 
   return (
     <section className="min-h-screen bg-bg-color py-32 px-[7%] flex flex-col items-center" id="projects">
-      {/* Título y Filtros */}
+      
       <div className="text-center mb-20">
         <h2 className="text-[5.5rem] md:text-[7.5rem] font-bold text-text-purple">
           Mis <span className="gradient-text">Proyectos</span>
@@ -104,6 +101,7 @@ const Projects = () => {
         <div className="w-[12rem] h-[5px] bg-main-purple mx-auto mt-4 rounded-full"></div>
       </div>
 
+      {/* Filtros */}
       <div className="flex flex-wrap justify-center gap-6 mb-20">
         {['Todos', 'Destacados', 'Universidad', 'Juegos'].map((cat) => (
           <button
@@ -124,32 +122,44 @@ const Projects = () => {
         {displayedProjects.map((project) => (
           <div key={project.id} className="group bg-secondary-purple/10 border border-white/5 rounded-[2.5rem] p-10 flex flex-col hover:border-main-purple/50 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(108,52,211,0.2)] hover:-translate-y-3">
 
-            {/* --- NUEVA SECCIÓN DE IMAGEN: CARRUSEL INTEGRADO --- */}
-            <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-10 border-4 border-transparent group-hover:border-main-purple transition-all project-swiper-container">
-
-              {/* Badge de Categoría */}
-              <div className="absolute top-4 left-4 z-30 bg-main-purple text-white px-5 py-2 rounded-full text-[1.2rem] font-bold uppercase shadow-lg">
+            {/* Carrusel de Imágenes con Tailwind puro para Flechas */}
+            <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-10 border-4 border-transparent group-hover:border-main-purple transition-all
+              [&_.swiper-button-next]:text-white [&_.swiper-button-prev]:text-white
+              [&_.swiper-button-next]:bg-white/10 [&_.swiper-button-prev]:bg-white/10
+              [&_.swiper-button-next]:backdrop-blur-md [&_.swiper-button-prev]:backdrop-blur-md
+              [&_.swiper-button-next]:w-14 [&_.swiper-button-prev]:w-14
+              [&_.swiper-button-next]:h-14 [&_.swiper-button-prev]:h-14
+              [&_.swiper-button-next]:rounded-2xl [&_.swiper-button-prev]:rounded-2xl
+              [&_.swiper-button-next]:border [&_.swiper-button-prev]:border
+              [&_.swiper-button-next]:border-white/20 [&_.swiper-button-prev]:border-white/20
+              [&_.swiper-button-next]:after:text-[1.8rem] [&_.swiper-button-prev]:after:text-[1.8rem]
+              [&_.swiper-button-next]:after:font-bold [&_.swiper-button-prev]:after:font-bold
+              [&_.swiper-button-next]:opacity-0 [&_.swiper-button-prev]:opacity-0
+              group-hover:[&_.swiper-button-next]:opacity-100 group-hover:[&_.swiper-button-prev]:opacity-100
+              [&_.swiper-button-next]:transition-all [&_.swiper-button-prev]:transition-all
+              [&_.swiper-button-next]:hover:bg-main-purple [&_.swiper-button-prev]:hover:bg-main-purple
+              [&_.swiper-pagination-bullet]:bg-white/50 [&_.swiper-pagination-bullet-active]:bg-main-purple
+              [&_.swiper-pagination-bullet-active]:w-6 [&_.swiper-pagination-bullet-active]:rounded-full">
+              
+              <div className="absolute top-4 left-4 z-40 bg-main-purple/90 backdrop-blur-sm text-white px-5 py-2 rounded-full text-[1.2rem] font-bold uppercase shadow-lg">
                 {project.badge}
               </div>
 
-              {/* Degradado superpuesto sutil */}
-              <div className="absolute inset-0 bg-gradient-to-t from-bg-color/40 via-transparent to-transparent z-20 opacity-70"></div>
-
-              {/* Swiper Carrusel */}
               <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={0}
                 slidesPerView={1}
-                navigation={project.images.length > 1} // Solo muestra flechas si hay > 1 imagen
-                pagination={{ clickable: true }} // Puntos inferiores
-                autoplay={{ delay: 5000, disableOnInteraction: true }} // Autoplay sutil
+                navigation={project.images.length > 1}
+                pagination={{ clickable: true }}
+                autoplay={{ delay: 5000, disableOnInteraction: false }}
                 className="w-full h-full"
               >
                 {project.images.map((image, index) => (
                   <SwiperSlide key={index}>
                     <img
                       src={image.src}
-                      alt={`${project.title} - Vista ${index + 1}`}
+                      alt={project.title}
+                      loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
                   </SwiperSlide>
@@ -157,7 +167,7 @@ const Projects = () => {
               </Swiper>
             </div>
 
-            {/* --- RESTO DE LA TARJETA (Texto y Botones igual) --- */}
+            {/* Contenido de la Tarjeta */}
             <div className="flex-grow flex flex-col">
               <span className="text-main-purple text-[1.4rem] font-bold tracking-widest mb-2 uppercase italic">
                 {project.type}
@@ -178,6 +188,7 @@ const Projects = () => {
               </div>
             </div>
 
+            {/* Botones de Acción */}
             <div className="grid grid-cols-2 gap-5 mt-auto pt-8 border-t border-white/10">
               {project.liveDemo && (
                 <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 p-5 bg-main-purple rounded-xl text-[1.5rem] text-white font-bold transition-all hover:brightness-110 hover:shadow-[0_0_15px_#6c34d3]">
@@ -194,14 +205,14 @@ const Projects = () => {
         ))}
       </div>
 
-      {/* Botón Ver Más (Igual a la anterior) */}
+      {/* Botón Ver Más */}
       {visibleCount < filteredProjects.length && (
         <button
           onClick={() => setVisibleCount(prev => prev + 3)}
-          className="mt-20 px-16 py-5 bg-transparent border-2 border-main-purple text-main-purple rounded-full text-[1.8rem] font-bold hover:bg-main-purple hover:text-white transition-all flex items-center gap-4"
+          className="mt-20 px-16 py-5 bg-transparent border-2 border-main-purple text-main-purple rounded-full text-[1.8rem] font-bold hover:bg-main-purple hover:text-white transition-all flex items-center gap-4 group"
         >
           Explorar más proyectos
-          <i className='bx bx-chevron-down text-[2.5rem]'></i>
+          <i className='bx bx-chevron-down text-[2.5rem] transition-transform group-hover:translate-y-2'></i>
         </button>
       )}
     </section>

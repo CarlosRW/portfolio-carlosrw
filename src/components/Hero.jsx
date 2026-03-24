@@ -97,7 +97,7 @@ const Hero = () => {
           </a>
           
           <a 
-            href="#portfolio" 
+            href="#projects" 
             className="relative inline-flex items-center justify-center sm:w-[20rem] h-[5.5rem] bg-transparent border-2 border-main-purple rounded-lg text-[1.8rem] lg:text-[2rem] text-main-purple font-semibold overflow-hidden group z-10 hover:text-bg-color w-full transition-colors duration-500"
           >
             Proyectos

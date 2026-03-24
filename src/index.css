@@ -40,7 +40,12 @@
     display: inline-block;
   }
 }
-
+@layer base {
+  html {
+    /* 62.5% * 0.8 = 50% */
+    @apply scroll-smooth text-[50%]; 
+  }
+}
 @layer utilities {
   /* Clase personalizada para el resplandor de texto animado */
   .text-shine {
