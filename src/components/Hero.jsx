@@ -16,54 +16,57 @@ const Hero = () => {
   ];
 
   return (
-    <section 
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 sm:px-12 md:px-[8%] lg:px-[10%] bg-bg-color pt-[12vh] md:pt-0 gap-12 lg:gap-20" 
+    <section
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 sm:px-12 md:px-[8%] lg:px-[10%] bg-bg-color pt-[12vh] md:pt-0 gap-16 lg:gap-24"
       id="home"
     >
       {/* 1. Contenedor de Imagen (Arriba en móvil, Derecha en PC) */}
       <div className="order-1 md:order-2 flex justify-center items-center flex-shrink-0 w-full md:w-auto">
-        <div className="relative w-[50vw] h-[50vw] sm:w-[40vw] sm:h-[40vw] md:w-[30vw] md:h-[30vw] lg:w-[28vw] lg:h-[28vw] max-w-[350px] max-h-[350px] lg:max-w-[450px] lg:max-h-[450px]">
-          {/* Círculo de fondo con resplandor (pulsante) */}
-          <div className="absolute inset-0 bg-main-purple rounded-full blur-[30px] opacity-25 animate-pulse"></div>
-          
-          {/* Contenedor de la imagen (flotante) */}
-          <div className="relative w-full h-full rounded-full border-[.6rem] lg:border-[.8rem] border-main-purple p-3 lg:p-4 shadow-[0_0_3rem_#6c34d3] animate-float overflow-hidden">
-            <img 
-              src="/tu-foto.png" 
-              alt="Carlos Ramírez" 
-              className="w-full h-full object-cover rounded-full"
+        <div className="relative w-[58vw] h-[58vw] sm:w-[42vw] sm:h-[42vw] md:w-[28vw] md:h-[28vw] lg:w-[24vw] lg:h-[24vw] max-w-[320px] max-h-[320px] lg:max-w-[400px] lg:max-h-[400px] animate-float">
+
+          {/* Capa sólida morada, desfasada y rotada: la firma visual de la sección */}
+          <div className="absolute inset-0 bg-gradient-to-br from-main-purple to-secondary-purple rounded-[2.5rem] rotate-6 translate-x-4 translate-y-4"></div>
+
+          {/* Contenedor de la imagen */}
+          <div className="relative w-full h-full rounded-[2.5rem] border border-white/10 shadow-2xl overflow-hidden -rotate-2">
+            <img
+              src="/CarlosRW.webp"
+              alt="Carlos Ramírez"
+              className="w-full h-full object-cover"
             />
+          </div>
+
+          {/* Chip flotante: único acento morado adicional, con propósito (identifica el rol) */}
+          <div className="absolute -bottom-5 -left-5 sm:-bottom-6 sm:-left-6 bg-bg-color border border-white/10 rounded-2xl px-5 py-3 shadow-xl flex items-center gap-2.5 z-10">
+            <span className="w-2.5 h-2.5 rounded-full bg-main-purple shadow-[0_0_10px_#6c34d3] shrink-0"></span>
+            <span className="text-[1.4rem] font-bold text-text-purple whitespace-nowrap">Software Developer</span>
           </div>
         </div>
       </div>
 
       {/* 2. Contenedor de Texto: Abajo en móvil, Izquierda en PC */}
       <div className="flex-1 order-2 md:order-1 text-center md:text-left flex flex-col items-center md:items-start max-w-[65rem] lg:max-w-[75rem]">
-        <h3 className="text-[2.2rem] sm:text-[2.6rem] lg:text-[3.2rem] font-medium text-text-purple tracking-wide">
+        <h3 className="text-[2.2rem] sm:text-[2.6rem] lg:text-[3.2rem] font-medium text-text-purple/70 tracking-wide">
           Hola, soy
         </h3>
-        
-        <h1 className="text-[4rem] sm:text-[5rem] md:text-[5.6rem] lg:text-[6.8rem] font-bold leading-[1.1] text-shine mb-3 mt-1">
-          Carlos Ramírez
+
+        <h1 className="text-[4rem] sm:text-[5rem] md:text-[5.6rem] lg:text-[6.8rem] font-bold leading-[1.1] text-shine mb-6 mt-1">
+          Carlos Ramírez Wong
         </h1>
-        
-        <h3 className="text-[2.2rem] sm:text-[2.8rem] lg:text-[3.6rem] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-main-purple to-primary-purple mt-[-0.5rem]">
-          Software Developer
-        </h3>
-        
-        <p className="text-[1.5rem] sm:text-[1.6rem] lg:text-[1.8rem] my-8 lg:my-10 leading-relaxed text-text-purple/80">
+
+        <p className="text-[1.5rem] sm:text-[1.6rem] lg:text-[1.8rem] mb-8 lg:mb-10 leading-relaxed text-text-purple/70 max-w-[55rem]">
           Estudiante de Ingeniería en Desarrollo de Software apasionado por crear soluciones innovadoras, desde aplicaciones web full-stack hasta experiencias inmersivas en videojuegos.
         </p>
 
-        {/* Redes Sociales - Botones 100% Tailwind */}
+        {/* Redes Sociales - neutras por defecto, morado solo en hover para no competir con el CTA */}
         <div className="flex justify-center md:justify-start gap-6 mb-10 lg:mb-12">
           {socialLinks.map((soc, i) => (
-            <a 
-              key={i} 
-              href={soc.link} 
-              target="_blank" 
+            <a
+              key={i}
+              href={soc.link}
+              target="_blank"
               rel="noopener noreferrer"
-              className="relative inline-flex items-center justify-center w-[4.5rem] h-[4.5rem] lg:w-[5rem] lg:h-[5rem] bg-transparent border-2 border-main-purple rounded-full text-[2.5rem] lg:text-[2.8rem] text-main-purple transition-all duration-500 hover:bg-main-purple hover:text-bg-color hover:shadow-[0_0_1.5rem_#6c34d3]"
+              className="relative inline-flex items-center justify-center w-[4.5rem] h-[4.5rem] lg:w-[5rem] lg:h-[5rem] bg-transparent border-2 border-white/15 rounded-full text-[2.5rem] lg:text-[2.8rem] text-text-purple/70 transition-all duration-500 hover:bg-main-purple hover:border-main-purple hover:text-white hover:shadow-[0_0_1.5rem_#6c34d3]"
             >
               <i className={`bx ${soc.icon}`}></i>
             </a>
@@ -76,32 +79,30 @@ const Hero = () => {
                 ¡Copiado!
               </div>
             )}
-            <button 
-              onClick={copyEmail} 
-              className="relative inline-flex items-center justify-center w-[4.5rem] h-[4.5rem] lg:w-[5rem] lg:h-[5rem] bg-transparent border-2 border-main-purple rounded-full text-[2.5rem] lg:text-[2.8rem] text-main-purple transition-all duration-500 hover:bg-main-purple hover:text-bg-color hover:shadow-[0_0_1.5rem_#6c34d3] cursor-pointer"
+            <button
+              onClick={copyEmail}
+              className="relative inline-flex items-center justify-center w-[4.5rem] h-[4.5rem] lg:w-[5rem] lg:h-[5rem] bg-transparent border-2 border-white/15 rounded-full text-[2.5rem] lg:text-[2.8rem] text-text-purple/70 transition-all duration-500 hover:bg-main-purple hover:border-main-purple hover:text-white hover:shadow-[0_0_1.5rem_#6c34d3] cursor-pointer"
             >
               <i className='bx bx-envelope'></i>
             </button>
           </div>
         </div>
 
-        {/* Botones de Acción - Ruta de CV corregida */}
+        {/* Botones de Acción: jerarquía clara — CV es la única acción morada sólida */}
         <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
-          <a 
-            href="/CV CarlosRamirezWong.pdf" 
+          <a
+            href="/CV CarlosRamirezWong.pdf"
             download="CV_CarlosRamirezWong.pdf"
-            className="relative inline-flex items-center justify-center sm:w-[20rem] h-[5.5rem] bg-main-purple border-2 border-main-purple rounded-lg text-[1.8rem] lg:text-[2rem] text-bg-color font-semibold overflow-hidden group z-10 hover:text-main-purple w-full transition-colors duration-500"
+            className="relative inline-flex items-center justify-center sm:w-[20rem] h-[5.5rem] bg-main-purple rounded-lg text-[1.8rem] lg:text-[2rem] text-white font-semibold hover:brightness-110 hover:shadow-[0_0_2rem_rgba(108,52,211,0.5)] w-full transition-all duration-500"
           >
             Descargar CV
-            <span className="absolute top-0 left-0 w-0 h-full bg-bg-color z-[-1] transition-all duration-500 group-hover:w-full"></span>
           </a>
-          
-          <a 
-            href="#projects" 
-            className="relative inline-flex items-center justify-center sm:w-[20rem] h-[5.5rem] bg-transparent border-2 border-main-purple rounded-lg text-[1.8rem] lg:text-[2rem] text-main-purple font-semibold overflow-hidden group z-10 hover:text-bg-color w-full transition-colors duration-500"
+
+          <a
+            href="#projects"
+            className="relative inline-flex items-center justify-center sm:w-[20rem] h-[5.5rem] bg-transparent border-2 border-white/15 rounded-lg text-[1.8rem] lg:text-[2rem] text-text-purple font-semibold hover:border-main-purple hover:text-main-purple w-full transition-all duration-500"
           >
             Proyectos
-            <span className="absolute top-0 left-0 w-0 h-full bg-main-purple z-[-1] transition-all duration-500 group-hover:w-full"></span>
           </a>
         </div>
       </div>

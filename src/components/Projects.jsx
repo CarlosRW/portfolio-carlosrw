@@ -44,6 +44,21 @@ const Projects = () => {
     },
     {
       id: 3,
+      title: 'Coffee.Lab',
+      category: 'Destacados',
+      badge: 'Proyecto Personal',
+      type: 'Full-Stack Development',
+      description: 'Sitio web de cafeteria con diseño caricaturesco y menú interactivo.',
+      techStack: ['React', 'Node.js', 'tailwind',],
+      images: [
+        { src: '/assets/projects/Coffee-Lab-1.webp' },
+        { src: '/assets/projects/Coffee-Lab-2.webp' },
+        { src: '/assets/projects/Coffee-Lab-3.webp' }
+      ],
+      liveDemo: 'https://coffeelab-seven.vercel.app',
+    },
+    {
+      id: 4,
       title: 'AgroDirectoCR',
       category: 'Universidad',
       badge: 'Universidad',
@@ -56,7 +71,21 @@ const Projects = () => {
       githubRepo: 'https://github.com/CarlosRW/AgroDirectoCR',
     },
     {
-      id: 4,
+      id: 5,
+      title: 'Agente IA',
+      category: 'AI & Machine Learning',
+      badge: 'Challenge Alura',
+      type: 'AI & Machine Learning',
+      description: 'Plataforma web que integra un agente de IA para ayudar a los usuarios a encontrar información y recursos sobre diversos temas, utilizando la API de Groq AI.',
+      techStack: ['Groq AI', 'Python', 'Streamlit'],
+      images: [
+        { src: '/assets/projects/Agente-IA-1.webp' },
+        { src: '/assets/projects/Agente-IA-2.webp' }
+      ],
+      liveDemo: 'https://modova-agente-ia.streamlit.app/',
+    },
+    {
+      id: 6,
       title: 'Spread the Bread',
       category: 'Juegos',
       badge: 'Videojuego',
@@ -70,7 +99,7 @@ const Projects = () => {
       liveDemo: 'https://skycito23.itch.io/spread-the-bread',
     },
     {
-      id: 5,
+      id: 7,
       title: 'Paws Together',
       category: 'Juegos',
       badge: 'Videojuego',
@@ -93,7 +122,7 @@ const Projects = () => {
 
   return (
     <section className="min-h-screen bg-bg-color py-32 px-[7%] flex flex-col items-center" id="projects">
-      
+
       <div className="text-center mb-20">
         <h2 className="text-[5.5rem] md:text-[7.5rem] font-bold text-text-purple">
           Mis <span className="gradient-text">Proyectos</span>
@@ -107,10 +136,7 @@ const Projects = () => {
           <button
             key={cat}
             onClick={() => { setFilter(cat); setVisibleCount(3); }}
-            className={`px-10 py-4 rounded-full text-[1.6rem] font-bold transition-all border-2 
-              ${filter === cat
-                ? 'bg-main-purple border-main-purple text-white shadow-[0_0_20px_rgba(108,52,211,0.4)]'
-                : 'bg-transparent border-white/10 text-text-purple/60 hover:border-main-purple/50'}`}
+            className={`px-10 py-4 rounded-full text-[1.6rem] font-bold transition-all border-2 ${filter === cat ? 'bg-main-purple border-main-purple text-white shadow-[0_0_20px_rgba(108,52,211,0.4)]' : 'bg-transparent border-white/10 text-text-purple/60 hover:border-main-purple/50'}`}
           >
             {cat}
           </button>
@@ -118,32 +144,14 @@ const Projects = () => {
       </div>
 
       {/* Grid de Proyectos */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 w-full max-w-[1600px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-[1600px]">
         {displayedProjects.map((project) => (
-          <div key={project.id} className="group bg-secondary-purple/10 border border-white/5 rounded-[2.5rem] p-10 flex flex-col hover:border-main-purple/50 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(108,52,211,0.2)] hover:-translate-y-3">
-
-            {/* Carrusel de Imágenes con Tailwind puro para Flechas */}
-            <div className="relative aspect-[16/10] rounded-2xl overflow-hidden mb-10 border-4 border-transparent group-hover:border-main-purple transition-all
-              [&_.swiper-button-next]:text-white [&_.swiper-button-prev]:text-white
-              [&_.swiper-button-next]:bg-white/10 [&_.swiper-button-prev]:bg-white/10
-              [&_.swiper-button-next]:backdrop-blur-md [&_.swiper-button-prev]:backdrop-blur-md
-              [&_.swiper-button-next]:w-14 [&_.swiper-button-prev]:w-14
-              [&_.swiper-button-next]:h-14 [&_.swiper-button-prev]:h-14
-              [&_.swiper-button-next]:rounded-2xl [&_.swiper-button-prev]:rounded-2xl
-              [&_.swiper-button-next]:border [&_.swiper-button-prev]:border
-              [&_.swiper-button-next]:border-white/20 [&_.swiper-button-prev]:border-white/20
-              [&_.swiper-button-next]:after:text-[1.8rem] [&_.swiper-button-prev]:after:text-[1.8rem]
-              [&_.swiper-button-next]:after:font-bold [&_.swiper-button-prev]:after:font-bold
-              [&_.swiper-button-next]:opacity-0 [&_.swiper-button-prev]:opacity-0
-              group-hover:[&_.swiper-button-next]:opacity-100 group-hover:[&_.swiper-button-prev]:opacity-100
-              [&_.swiper-button-next]:transition-all [&_.swiper-button-prev]:transition-all
-              [&_.swiper-button-next]:hover:bg-main-purple [&_.swiper-button-prev]:hover:bg-main-purple
-              [&_.swiper-pagination-bullet]:bg-white/50 [&_.swiper-pagination-bullet-active]:bg-main-purple
-              [&_.swiper-pagination-bullet-active]:w-6 [&_.swiper-pagination-bullet-active]:rounded-full">
-              
-              <div className="absolute top-4 left-4 z-40 bg-main-purple/90 backdrop-blur-sm text-white px-5 py-2 rounded-full text-[1.2rem] font-bold uppercase shadow-lg">
-                {project.badge}
-              </div>
+          <article
+            key={project.id}
+            className="group relative flex flex-col bg-secondary-purple/10 border border-white/5 rounded-[2rem] overflow-hidden transition-all duration-500 hover:border-main-purple/40 hover:-translate-y-2 hover:shadow-[0_25px_60px_rgba(108,52,211,0.2)]"
+          >
+            {/* Imagen a sangre completa con overlay editorial */}
+            <div className="relative aspect-[4/3] overflow-hidden [&_.swiper-button-next]:text-white [&_.swiper-button-prev]:text-white [&_.swiper-button-next]:bg-black/30 [&_.swiper-button-prev]:bg-black/30 [&_.swiper-button-next]:backdrop-blur-md [&_.swiper-button-prev]:backdrop-blur-md [&_.swiper-button-next]:w-12 [&_.swiper-button-prev]:w-12 [&_.swiper-button-next]:h-12 [&_.swiper-button-prev]:h-12 [&_.swiper-button-next]:rounded-full [&_.swiper-button-prev]:rounded-full [&_.swiper-button-next]:after:text-[1.5rem] [&_.swiper-button-prev]:after:text-[1.5rem] [&_.swiper-button-next]:opacity-0 [&_.swiper-button-prev]:opacity-0 group-hover:[&_.swiper-button-next]:opacity-100 group-hover:[&_.swiper-button-prev]:opacity-100 [&_.swiper-button-next]:transition-all [&_.swiper-button-prev]:transition-all [&_.swiper-button-next]:hover:bg-main-purple [&_.swiper-button-prev]:hover:bg-main-purple [&_.swiper-pagination-bullet]:bg-white/50 [&_.swiper-pagination-bullet-active]:bg-main-purple [&_.swiper-pagination-bullet-active]:w-5 [&_.swiper-pagination-bullet-active]:rounded-full">
 
               <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
@@ -160,48 +168,72 @@ const Projects = () => {
                       src={image.src}
                       alt={project.title}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   </SwiperSlide>
                 ))}
               </Swiper>
+
+              {/* Overlay degradado para legibilidad, fundiendo con el color de fondo */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-secondary-purple/10 via-transparent to-black/20 z-10"></div>
+
+              {/* Badge de categoría */}
+              <div className="absolute top-5 left-5 z-30 bg-bg-color/70 backdrop-blur-md border border-white/10 text-text-purple px-5 py-2 rounded-full text-[1.15rem] font-bold uppercase tracking-wide">
+                {project.badge}
+              </div>
+
+              {/* Accesos rápidos flotantes */}
+              <div className="absolute top-5 right-5 z-30 flex gap-3 opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                {project.liveDemo && (
+                  <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" aria-label="Ver demo en vivo" className="w-12 h-12 flex items-center justify-center bg-bg-color/70 backdrop-blur-md border border-white/10 rounded-full text-white text-[1.8rem] hover:bg-main-purple hover:border-main-purple transition-all">
+                    <i className='bx bx-link-external'></i>
+                  </a>
+                )}
+                {project.githubRepo && (
+                  <a href={project.githubRepo} target="_blank" rel="noopener noreferrer" aria-label="Ver código en GitHub" className="w-12 h-12 flex items-center justify-center bg-bg-color/70 backdrop-blur-md border border-white/10 rounded-full text-white text-[1.8rem] hover:bg-main-purple hover:border-main-purple transition-all">
+                    <i className='bx bxl-github'></i>
+                  </a>
+                )}
+              </div>
             </div>
 
-            {/* Contenido de la Tarjeta */}
-            <div className="flex-grow flex flex-col">
-              <span className="text-main-purple text-[1.4rem] font-bold tracking-widest mb-2 uppercase italic">
+            {/* Contenido */}
+            <div className="flex-grow flex flex-col p-9">
+              <span className="flex items-center gap-2 text-main-purple text-[1.3rem] font-bold tracking-widest mb-3 uppercase">
+                <span className="w-6 h-[2px] bg-main-purple"></span>
                 {project.type}
               </span>
-              <h3 className="text-[2.6rem] font-bold text-text-purple mb-5 leading-tight">
+
+              <h3 className="text-[2.3rem] font-bold text-text-purple mb-4 leading-tight group-hover:text-white transition-colors">
                 {project.title}
               </h3>
-              <p className="text-[1.7rem] text-text-purple/80 leading-relaxed mb-8">
+
+              <p className="text-[1.55rem] text-text-purple/70 leading-relaxed mb-7 line-clamp-3">
                 {project.description}
               </p>
 
-              <div className="flex flex-wrap gap-3 mb-10 mt-auto">
+              <div className="flex flex-wrap gap-2.5 mb-8">
                 {project.techStack.map((tech) => (
-                  <span key={tech} className="px-4 py-1.5 bg-white/5 border border-white/10 text-white/80 rounded-lg text-[1.3rem] font-medium">
+                  <span key={tech} className="px-3.5 py-1.5 bg-white/5 border border-white/10 text-white/70 rounded-lg text-[1.2rem] font-medium">
                     {tech}
                   </span>
                 ))}
               </div>
-            </div>
 
-            {/* Botones de Acción */}
-            <div className="grid grid-cols-2 gap-5 mt-auto pt-8 border-t border-white/10">
-              {project.liveDemo && (
-                <a href={project.liveDemo} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 p-5 bg-main-purple rounded-xl text-[1.5rem] text-white font-bold transition-all hover:brightness-110 hover:shadow-[0_0_15px_#6c34d3]">
-                  <i className='bx bx-play-circle'></i> Demo
+              {/* Footer: CTA principal + acción secundaria */}
+              <div className="mt-auto pt-7 border-t border-white/10 flex gap-4">
+                <a href={project.liveDemo || project.githubRepo} target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center gap-2 py-4 bg-main-purple rounded-xl text-[1.4rem] text-white font-bold transition-all hover:brightness-110 hover:shadow-[0_0_15px_#6c34d3]">
+                  <i className={`bx ${project.liveDemo ? 'bx-play-circle' : 'bxl-github'} text-[1.8rem]`}></i>
+                  {project.liveDemo ? 'Ver demo' : 'Ver código'}
                 </a>
-              )}
-              {project.githubRepo && (
-                <a href={project.githubRepo} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 p-5 bg-transparent border-2 border-white/20 rounded-xl text-[1.5rem] text-text-purple font-semibold hover:border-main-purple hover:text-white transition-all">
-                  <i className='bx bxl-github'></i> Code
-                </a>
-              )}
+                {project.liveDemo && project.githubRepo && (
+                  <a href={project.githubRepo} target="_blank" rel="noopener noreferrer" aria-label="Ver código en GitHub" className="w-[5.6rem] flex items-center justify-center bg-transparent border-2 border-white/15 rounded-xl text-text-purple text-[2rem] hover:border-main-purple hover:text-white transition-all">
+                    <i className='bx bxl-github'></i>
+                  </a>
+                )}
+              </div>
             </div>
-          </div>
+          </article>
         ))}
       </div>
 
