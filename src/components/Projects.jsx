@@ -59,6 +59,20 @@ const Projects = () => {
     },
     {
       id: 4,
+      title: 'Cat Queen Game',
+      category: 'Destacados',
+      badge: 'Proyecto Personal',
+      type: 'Game Development',
+      description: 'Juego de navegador con temática de gatos y reina, con mecánicas de juego y niveles.',
+      techStack: ['React', 'JavaScript', 'PostgreSQL', 'Groq AI'],
+      images: [
+        { src: '/assets/projects/catgame-1.webp' },
+      ],
+      liveDemo: 'https://cat-queen-game-beta.vercel.app',
+      githubRepo: 'https://github.com/CarlosRW/Cat-Queen-Game',
+    },
+    {
+      id: 5,
       title: 'AgroDirectoCR',
       category: 'Universidad',
       badge: 'Universidad',
@@ -71,7 +85,7 @@ const Projects = () => {
       githubRepo: 'https://github.com/CarlosRW/AgroDirectoCR',
     },
     {
-      id: 5,
+      id: 6,
       title: 'Agente IA',
       category: 'AI & Machine Learning',
       badge: 'Challenge Alura',
@@ -85,7 +99,7 @@ const Projects = () => {
       liveDemo: 'https://modova-agente-ia.streamlit.app/',
     },
     {
-      id: 6,
+      id: 7,
       title: 'Spread the Bread',
       category: 'Juegos',
       badge: 'Videojuego',
@@ -99,7 +113,7 @@ const Projects = () => {
       liveDemo: 'https://skycito23.itch.io/spread-the-bread',
     },
     {
-      id: 7,
+      id: 8,
       title: 'Paws Together',
       category: 'Juegos',
       badge: 'Videojuego',
