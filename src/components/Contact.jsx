@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Reveal from './Reveal';
+import FillButton from './FillButton';
 
 const Contact = () => {
   const [showTooltip, setShowTooltip] = useState(false);
@@ -17,26 +19,23 @@ const Contact = () => {
   ];
 
   return (
-    <section 
-      id="contact" 
-      className="py-32 px-[7%] bg-bg-color flex flex-col items-center justify-center font-['Poppins',_sans-serif]"
+    <section
+      id="contact"
+      className="py-32 px-[7%] bg-bg-color flex flex-col items-center justify-center font-['Poppins',sans-serif]"
     >
-      {/* 1. Título de la Sección */}
-      <div className="text-center mb-24">
+      <Reveal className="text-center mb-24">
         <h2 className="text-[5.5rem] md:text-[7.5rem] font-bold text-white tracking-tight">
           Contácta<span className="gradient-text">me</span>
         </h2>
-        <div className="w-[12rem] h-[5px] bg-main-purple mx-auto mt-4 rounded-full shadow-[0_0_10px_#6c34d3]"></div>
-      </div>
+        <div className="w-48 h-[5px] bg-main-purple mx-auto mt-4 rounded-full shadow-[0_0_10px_#6c34d3]"></div>
+      </Reveal>
 
-      {/* 2. Tarjeta de Contacto */}
-      <div className="relative max-w-[850px] w-full bg-secondary-purple/5 border-2 border-main-purple/30 rounded-[3rem] p-12 md:p-20 backdrop-blur-sm overflow-hidden group hover:border-main-purple/60 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(108,52,211,0.2)]">
-        
-        {/* Resplandor de fondo */}
+      <Reveal index={1} className="relative max-w-[850px] w-full bg-secondary-purple/5 border-2 border-main-purple/30 rounded-[3rem] p-12 md:p-20 backdrop-blur-sm overflow-hidden group hover:border-main-purple/60 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(108,52,211,0.2)]">
+
         <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-main-purple/10 blur-[80px] rounded-full group-hover:bg-main-purple/20 transition-all duration-500"></div>
 
         <div className="relative z-10 flex flex-col items-start gap-12 text-left">
-          
+
           <div className="space-y-6">
             <h3 className="text-[3.2rem] md:text-[3.8rem] font-bold text-white tracking-tight">
               ¡Trabajemos juntos!
@@ -46,10 +45,8 @@ const Contact = () => {
             </p>
           </div>
 
-          {/* Información de Contacto */}
           <div className="w-full space-y-10">
-            
-            {/* Bloque: Email */}
+
             <div className="flex items-center gap-6 group/item cursor-pointer" onClick={copyEmail}>
               <div className="relative shrink-0 w-20 h-20 bg-main-purple/20 border border-main-purple/40 rounded-full flex items-center justify-center group-hover/item:bg-main-purple group-hover/item:shadow-[0_0_20px_#6c34d3] transition-all duration-300">
                 <i className='bx bx-envelope text-[3.5rem] text-main-purple group-hover/item:text-white transition-colors'></i>
@@ -67,7 +64,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Bloque: Teléfono (Nuevo) */}
             <a href={`tel:${phone.replace(/\s/g, '')}`} className="flex items-center gap-6 group/phone">
               <div className="shrink-0 w-20 h-20 bg-main-purple/20 border border-main-purple/40 rounded-full flex items-center justify-center group-hover/phone:bg-main-purple group-hover/phone:shadow-[0_0_20px_#6c34d3] transition-all duration-300">
                 <i className='bx bx-phone text-[3.5rem] text-main-purple group-hover/phone:text-white transition-colors'></i>
@@ -80,7 +76,6 @@ const Contact = () => {
               </div>
             </a>
 
-            {/* Bloque: Ubicación */}
             <div className="flex items-center gap-6">
               <div className="shrink-0 w-20 h-20 bg-main-purple/20 border border-main-purple/40 rounded-full flex items-center justify-center">
                 <i className='bx bx-map text-[3.5rem] text-main-purple'></i>
@@ -95,23 +90,23 @@ const Contact = () => {
 
           </div>
 
-          {/* Redes Sociales */}
           <div className="w-full flex justify-center pt-8 border-t border-white/5 gap-8">
             {socialLinks.map((social) => (
-              <a 
+              <FillButton
                 key={social.name}
-                href={social.url} 
-                target="_blank" 
+                href={social.url}
+                target="_blank"
                 rel="noopener noreferrer"
-                className="w-[5rem] h-[5rem] border-2 border-main-purple rounded-full flex items-center justify-center text-[2.8rem] text-main-purple transition-all duration-500 hover:bg-main-purple hover:text-bg-color hover:shadow-[0_0_1.5rem_#6c34d3]"
+                className="w-[5rem] h-[5rem] border-2 border-main-purple rounded-full text-[2.8rem] text-main-purple hover:border-main-purple/70 transition-colors duration-500"
+                style={{ '--fill-color': '#6c34d3' }}
               >
                 <i className={`bx ${social.icon}`}></i>
-              </a>
+              </FillButton>
             ))}
           </div>
 
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 };

@@ -7,10 +7,12 @@
   --color-secondary-purple: #291254;
   --color-main-purple: #6c34d3;
   --color-text-purple: #e9dbf6;
-  
+
   /* Animaciones */
   --animate-float: floatImage 4s ease-in-out infinite;
   --animate-text-shine: textShine 4s linear infinite;
+  --animate-mesh-1: meshMove1 18s ease-in-out infinite;
+  --animate-mesh-2: meshMove2 22s ease-in-out infinite;
 
   @keyframes textShine {
     0% { background-position: 200% center; }
@@ -21,39 +23,57 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-2.4rem); }
   }
+
+  @keyframes meshMove1 {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(6%, 8%, 0) scale(1.15); }
+  }
+
+  @keyframes meshMove2 {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    50% { transform: translate3d(-8%, -6%, 0) scale(1.1); }
+  }
 }
 
 @layer base {
   html {
-    @apply scroll-smooth text-[62.5%];
-  }
-  
-  body {
-    @apply bg-bg-color text-text-purple font-['Poppins',_sans-serif] overflow-x-hidden;
+    /* 62.5% * 0.8 = 50% -> 1rem = 8px */
+    @apply scroll-smooth text-[50%];
   }
 
-  /* Aplicación automática a todos los títulos de sección (h2) */
+  body {
+    @apply bg-bg-color text-text-purple font-['Poppins',sans-serif] overflow-x-hidden;
+  }
+
   section h2 span {
     background: linear-gradient(to bottom, #a27dfa, #6c34d3);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
   }
-}
-@layer base {
-  html {
-    /* 62.5% * 0.8 = 50% */
-    @apply scroll-smooth text-[50%]; 
+
+  ::selection {
+    background: rgba(108, 52, 211, 0.4);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #1a1723; }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(#6c34d3, #291254);
+    border-radius: 10px;
+    border: 2px solid #1a1723;
   }
 }
+
 @layer utilities {
-  /* Clase personalizada para el resplandor de texto animado */
   .text-shine {
     background: linear-gradient(
       to right,
-      #e9dbf6 20%, 
-      #ffffff 40%, 
-      #8558DA 50%, 
+      #e9dbf6 20%,
+      #ffffff 40%,
+      #8558DA 50%,
       #e9dbf6 80%
     );
     background-size: 200% auto;
@@ -65,6 +85,7 @@
 
   .gradient-text {
     background: linear-gradient(to bottom, #a27dfa, #6c34d3);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
@@ -78,13 +99,169 @@
   .social-icon-box:hover {
     box-shadow: 0 0 20px rgba(108, 52, 211, 0.2);
   }
+
+  .social-button {
+    @apply w-20 h-20 flex items-center justify-center bg-white/5 border border-white/10 rounded-3xl
+           text-text-purple/40 text-[2.8rem] transition-all duration-500 relative overflow-hidden;
+  }
+
+  .social-button::before {
+    content: '';
+    @apply absolute inset-0 bg-main-purple opacity-0 transition-opacity duration-500;
+    z-index: 0;
+  }
+
+  .social-button:hover {
+    @apply border-main-purple/50 -translate-y-3 text-white;
+    box-shadow: 0 15px 30px rgba(108, 52, 211, 0.2);
+  }
+
+  .social-button i {
+    @apply relative z-10;
+  }
+
+  /* --- Scroll Reveal --- */
+  .reveal {
+    opacity: 0;
+    transform: translate3d(0, 3.2rem, 0);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  /* --- Mesh gradient de fondo --- */
+  .mesh-blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(90px);
+    pointer-events: none;
+    will-change: transform;
+  }
+
+  /* --- Cursor glow --- */
+  .cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 44rem;
+    height: 44rem;
+    margin-left: -22rem;
+    margin-top: -22rem;
+    border-radius: 9999px;
+    background: radial-gradient(circle, rgba(108, 52, 211, 0.28) 0%, rgba(108, 52, 211, 0) 70%);
+    pointer-events: none;
+    z-index: 40;
+    will-change: transform;
+  }
+
+  /* --- Spotlight card --- */
+  .spotlight-card {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .spotlight-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background: radial-gradient(
+      420px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+      rgba(108, 52, 211, 0.18),
+      transparent 65%
+    );
+    transition: opacity 0.4s ease;
+  }
+
+  .spotlight-card:hover .spotlight-overlay {
+    opacity: 1;
+  }
+
+  .spotlight-card > *:not(.spotlight-overlay) {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* --- Fill button radial (efecto Flowty: círculo desde el cursor) --- */
+  .fill-btn {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    display: inline-flex;
+  }
+
+  .fill-btn__content {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    transition: color 0.2s ease;
+  }
+
+  .fill-btn__content i {
+    display: block;
+    line-height: 1;
+  }
+
+  .fill-btn__layer {
+    position: absolute;
+    z-index: 0;
+    left: var(--x, 50%);
+    top: var(--y, 50%);
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    margin-top: -3px;
+    border-radius: 9999px;
+    background-color: var(--fill-color, #6c34d3);
+    transform: scale(0);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+    will-change: transform;
+  }
+
+  .fill-btn.is-hover .fill-btn__layer {
+    transform: scale(120);
+  }
+
+  .fill-btn.is-hover .fill-btn__content {
+    color: #fff;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .cursor-glow {
+    display: none !important;
+  }
 }
 
 /* --- Ajustes de Componentes Externos (Swiper) --- */
 
 .project-swiper-container .swiper-button-next,
 .project-swiper-container .swiper-button-prev {
-  color: #6c34d3 !important; 
+  color: #6c34d3 !important;
   background: rgba(26, 23, 35, 0.5);
   padding: 25px;
   border-radius: 50%;
@@ -105,24 +282,4 @@
 .project-swiper-container .swiper-pagination-bullet-active {
   background: #6c34d3;
   box-shadow: 0 0 10px rgba(108, 52, 211, 0.8);
-}
-
-.social-button {
-  @apply w-20 h-20 flex items-center justify-center bg-white/5 border border-white/10 rounded-[1.5rem] 
-         text-text-purple/40 text-[2.8rem] transition-all duration-500 relative overflow-hidden;
-}
-
-.social-button::before {
-  content: '';
-  @apply absolute inset-0 bg-main-purple opacity-0 transition-opacity duration-500;
-  z-index: 0;
-}
-
-.social-button:hover {
-  @apply border-main-purple/50 -translate-y-3 text-white;
-  box-shadow: 0 15px 30px rgba(108, 52, 211, 0.2);
-}
-
-.social-button i {
-  @apply relative z-10;
 }

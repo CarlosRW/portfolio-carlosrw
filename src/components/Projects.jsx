@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import Reveal from './Reveal';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -137,12 +138,12 @@ const Projects = () => {
   return (
     <section className="min-h-screen bg-bg-color py-32 px-[7%] flex flex-col items-center" id="projects">
 
-      <div className="text-center mb-20">
+      <Reveal className="text-center mb-20">
         <h2 className="text-[5.5rem] md:text-[7.5rem] font-bold text-text-purple">
           Mis <span className="gradient-text">Proyectos</span>
         </h2>
-        <div className="w-[12rem] h-[5px] bg-main-purple mx-auto mt-4 rounded-full"></div>
-      </div>
+        <div className="w-48 h-[5px] bg-main-purple mx-auto mt-4 rounded-full"></div>
+      </Reveal>
 
       {/* Filtros */}
       <div className="flex flex-wrap justify-center gap-6 mb-20">
@@ -159,13 +160,15 @@ const Projects = () => {
 
       {/* Grid de Proyectos */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-[1600px]">
-        {displayedProjects.map((project) => (
-          <article
+        {displayedProjects.map((project, index) => (
+          <Reveal
             key={project.id}
-            className="group relative flex flex-col bg-secondary-purple/10 border border-white/5 rounded-[2rem] overflow-hidden transition-all duration-500 hover:border-main-purple/40 hover:-translate-y-2 hover:shadow-[0_25px_60px_rgba(108,52,211,0.2)]"
+            as="article"
+            index={index % 3}
+            className="group relative flex flex-col bg-secondary-purple/10 border border-white/5 rounded-4xl overflow-hidden transition-all duration-500 hover:border-main-purple/40 hover:-translate-y-2 hover:shadow-[0_25px_60px_rgba(108,52,211,0.2)]"
           >
             {/* Imagen a sangre completa con overlay editorial */}
-            <div className="relative aspect-[4/3] overflow-hidden [&_.swiper-button-next]:text-white [&_.swiper-button-prev]:text-white [&_.swiper-button-next]:bg-black/30 [&_.swiper-button-prev]:bg-black/30 [&_.swiper-button-next]:backdrop-blur-md [&_.swiper-button-prev]:backdrop-blur-md [&_.swiper-button-next]:w-12 [&_.swiper-button-prev]:w-12 [&_.swiper-button-next]:h-12 [&_.swiper-button-prev]:h-12 [&_.swiper-button-next]:rounded-full [&_.swiper-button-prev]:rounded-full [&_.swiper-button-next]:after:text-[1.5rem] [&_.swiper-button-prev]:after:text-[1.5rem] [&_.swiper-button-next]:opacity-0 [&_.swiper-button-prev]:opacity-0 group-hover:[&_.swiper-button-next]:opacity-100 group-hover:[&_.swiper-button-prev]:opacity-100 [&_.swiper-button-next]:transition-all [&_.swiper-button-prev]:transition-all [&_.swiper-button-next]:hover:bg-main-purple [&_.swiper-button-prev]:hover:bg-main-purple [&_.swiper-pagination-bullet]:bg-white/50 [&_.swiper-pagination-bullet-active]:bg-main-purple [&_.swiper-pagination-bullet-active]:w-5 [&_.swiper-pagination-bullet-active]:rounded-full">
+            <div className="relative aspect-4/3 overflow-hidden [&_.swiper-button-next]:text-white [&_.swiper-button-prev]:text-white [&_.swiper-button-next]:bg-black/30 [&_.swiper-button-prev]:bg-black/30 [&_.swiper-button-next]:backdrop-blur-md [&_.swiper-button-prev]:backdrop-blur-md [&_.swiper-button-next]:w-12 [&_.swiper-button-prev]:w-12 [&_.swiper-button-next]:h-12 [&_.swiper-button-prev]:h-12 [&_.swiper-button-next]:rounded-full [&_.swiper-button-prev]:rounded-full [&_.swiper-button-next]:after:text-[1.5rem] [&_.swiper-button-prev]:after:text-[1.5rem] [&_.swiper-button-next]:opacity-0 [&_.swiper-button-prev]:opacity-0 group-hover:[&_.swiper-button-next]:opacity-100 group-hover:[&_.swiper-button-prev]:opacity-100 [&_.swiper-button-next]:transition-all [&_.swiper-button-prev]:transition-all [&_.swiper-button-next]:hover:bg-main-purple [&_.swiper-button-prev]:hover:bg-main-purple [&_.swiper-pagination-bullet]:bg-white/50 [&_.swiper-pagination-bullet-active]:bg-main-purple [&_.swiper-pagination-bullet-active]:w-5 [&_.swiper-pagination-bullet-active]:rounded-full">
 
               <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
@@ -176,8 +179,8 @@ const Projects = () => {
                 autoplay={{ delay: 5000, disableOnInteraction: false }}
                 className="w-full h-full"
               >
-                {project.images.map((image, index) => (
-                  <SwiperSlide key={index}>
+                {project.images.map((image, i) => (
+                  <SwiperSlide key={i}>
                     <img
                       src={image.src}
                       alt={project.title}
@@ -189,7 +192,7 @@ const Projects = () => {
               </Swiper>
 
               {/* Overlay degradado para legibilidad, fundiendo con el color de fondo */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-secondary-purple/10 via-transparent to-black/20 z-10"></div>
+              <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-secondary-purple/10 via-transparent to-black/20 z-10"></div>
 
               {/* Badge de categoría */}
               <div className="absolute top-5 left-5 z-30 bg-bg-color/70 backdrop-blur-md border border-white/10 text-text-purple px-5 py-2 rounded-full text-[1.15rem] font-bold uppercase tracking-wide">
@@ -212,7 +215,7 @@ const Projects = () => {
             </div>
 
             {/* Contenido */}
-            <div className="flex-grow flex flex-col p-9">
+            <div className="grow flex flex-col p-9">
               <span className="flex items-center gap-2 text-main-purple text-[1.3rem] font-bold tracking-widest mb-3 uppercase">
                 <span className="w-6 h-[2px] bg-main-purple"></span>
                 {project.type}
@@ -247,7 +250,7 @@ const Projects = () => {
                 )}
               </div>
             </div>
-          </article>
+          </Reveal>
         ))}
       </div>
 
