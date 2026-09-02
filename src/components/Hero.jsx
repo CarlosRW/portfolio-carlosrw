@@ -60,11 +60,15 @@ const Hero = () => {
           Carlos Ramírez Wong
         </Reveal>
 
-        <Reveal as="p" index={2} className="text-[1.5rem] sm:text-[1.6rem] lg:text-[1.8rem] mb-8 lg:mb-10 leading-relaxed text-text-purple/70 max-w-220">
-          Estudiante de Ingeniería en Desarrollo de Software apasionado por crear soluciones innovadoras, desde aplicaciones web full-stack hasta experiencias inmersivas en videojuegos.
+        <Reveal as="p" index={2} className="text-[1.9rem] sm:text-[2.1rem] lg:text-[2.3rem] font-semibold text-text-purple mb-4 leading-snug max-w-220">
+          Software Developer · React, Java &amp; IA aplicada
         </Reveal>
 
-        <Reveal index={3} className="flex justify-center md:justify-start gap-6 mb-10 lg:mb-12">
+        <Reveal as="p" index={3} className="text-[1.5rem] sm:text-[1.6rem] lg:text-[1.8rem] mb-8 lg:mb-10 leading-relaxed text-text-purple/70 max-w-220">
+          Diseño y desarrollo aplicaciones web full-stack con foco en performance, arquitectura limpia y experiencias de usuario memorables - desde sitios para negocios hasta plataformas con IA integrada. Actualmente cursando Ingeniería en Desarrollo de Software en Costa Rica.
+        </Reveal>
+
+        <Reveal index={4} className="flex justify-center md:justify-start gap-6 mb-10 lg:mb-12">
           {socialLinks.map((soc, i) => (
             <FillButton
               key={i}
@@ -80,7 +84,7 @@ const Hero = () => {
 
           <div className="relative">
             {showTooltip && (
-              <div className="absolute -top-14 left-1/2 -translate-x-1/2 bg-main-purple text-white text-[1.2rem] px-4 py-2 rounded-lg font-bold animate-bounce shadow-lg whitespace-nowrap z-50">
+              <div className="absolute -top-14 left-1/2 -translate-x-1/2 bg-main-purple text-white text-[1.2rem] px-4 py-2 rounded-lg font-bold animate-bounce shadow-lg whitespace-nowrap z-50" role="status" aria-live="polite">
                 ¡Copiado!
               </div>
             )}
@@ -95,7 +99,7 @@ const Hero = () => {
           </div>
         </Reveal>
 
-        <Reveal index={4} className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
+        <Reveal index={5} className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
           <a
             href="/CV CarlosRamirezWong.pdf"
             download="CV_CarlosRamirezWong.pdf"

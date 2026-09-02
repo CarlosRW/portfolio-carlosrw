@@ -41,7 +41,7 @@ const Footer = () => {
               Carlos <span className="gradient-text">RW</span>
             </a>
             <p className="text-[1.6rem] text-text-purple/40 font-medium text-center md:text-left">
-              Estudiante de Ingeniería de Software creando experiencias digitales excepcionales.
+              Software Developer creando experiencias digitales excepcionales.
             </p>
           </div>
 
@@ -64,7 +64,7 @@ const Footer = () => {
               {/* Botón Email con Tooltip */}
               <div className="relative">
                 {showTooltip && (
-                  <div className="absolute -top-14 left-1/2 -translate-x-1/2 bg-main-purple text-white text-[1.2rem] px-4 py-2 rounded-lg font-bold animate-bounce shadow-lg whitespace-nowrap z-50">
+                  <div className="absolute -top-14 left-1/2 -translate-x-1/2 bg-main-purple text-white text-[1.2rem] px-4 py-2 rounded-lg font-bold animate-bounce shadow-lg whitespace-nowrap z-50" role="status" aria-live="polite">
                     ¡Copiado!
                   </div>
                 )}

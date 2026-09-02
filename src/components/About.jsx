@@ -9,8 +9,8 @@ const About = () => {
   ];
 
   const stats = [
-    { number: '56%', text: 'UNIVERSIDAD FIDÉLITAS COMPLETADO' },
     { number: '10+', text: 'PROYECTOS COMPLETADOS' },
+    { number: '15+', text: 'CERTIFICACIONES OBTENIDAS' },
     { number: '03+', text: 'JUEGOS/DEMOS DESARROLLADOS' },
   ];
 

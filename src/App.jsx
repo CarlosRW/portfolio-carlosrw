@@ -10,11 +10,13 @@ import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CursorGlow from './components/CursorGlow';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 function App() {
   return (
     <div className="bg-bg-color min-h-screen font-poppins relative">
       <CursorGlow />
+      <FloatingWhatsApp />
       <Navbar />
       <main>
         <Hero />

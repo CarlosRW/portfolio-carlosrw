@@ -8,17 +8,17 @@ const Skills = () => {
             title: 'Frontend Mastery',
             skills: [
                 { name: 'React', icon: 'bxl-react' },
+                { name: 'TypeScript', icon: 'bxl-typescript' },
                 { name: 'JavaScript', icon: 'bxl-javascript' },
                 { name: 'Tailwind CSS', icon: 'bxl-tailwind-css' },
-                { name: 'HTML5/CSS3', icon: 'bxl-html5' },
             ]
         },
         {
             title: 'Backend & Cloud',
             skills: [
+                { name: 'Java', icon: 'bxl-java' },
                 { name: 'Spring Boot', icon: 'bxl-spring-boot' },
                 { name: 'Python', icon: 'bxl-python' },
-                { name: 'PHP', icon: 'bxl-php' },
                 { name: 'Node.js', icon: 'bxl-nodejs' },
             ]
         },
@@ -26,7 +26,7 @@ const Skills = () => {
             title: 'Databases & Ops',
             skills: [
                 { name: 'PostgreSQL', icon: 'bxl-postgresql' },
-                { name: 'MySQL', icon: 'bxl-mongodb' },
+                { name: 'MongoDB', icon: 'bxl-mongodb' },
                 { name: 'Docker', icon: 'bxl-docker' },
                 { name: 'Git/GitHub', icon: 'bxl-github' },
             ]

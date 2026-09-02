@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Reveal from './Reveal';
 
 const Journey = () => {
@@ -78,32 +79,44 @@ const Journey = () => {
   );
 };
 
-const TimelineItem = ({ date, title, subtitle, desc, logo }) => (
-  <div className="relative bg-secondary-purple/5 border border-white/5 p-10 rounded-[2.5rem] group hover:border-main-purple/50 transition-all duration-500 hover:bg-secondary-purple/10">
-    <div className="absolute -left-[43px] top-12 w-6 h-6 bg-main-purple rounded-full shadow-[0_0_20px_#6c34d3] group-hover:scale-125 transition-all duration-500"></div>
+const TimelineItem = ({ date, title, subtitle, desc, logo }) => {
+  const [logoFailed, setLogoFailed] = useState(false);
 
-    <div className="flex flex-col xl:flex-row justify-between items-center xl:items-start gap-10">
-      <div className="flex-1 order-2 xl:order-1 text-center xl:text-left">
-        <span className="text-main-purple font-black text-[1.4rem] tracking-[0.2em] uppercase">{date}</span>
-        <h4 className="text-[2.6rem] font-bold text-white mt-3 leading-tight group-hover:text-main-purple transition-colors">{title}</h4>
-        <p className="text-white/80 text-[1.8rem] font-semibold mt-1">{subtitle}</p>
-        <p className="text-white/50 text-[1.6rem] mt-6 leading-relaxed max-w-[600px]">{desc}</p>
-      </div>
+  return (
+    <div className="relative bg-secondary-purple/5 border border-white/5 p-10 rounded-[2.5rem] group hover:border-main-purple/50 transition-all duration-500 hover:bg-secondary-purple/10">
+      <div className="absolute -left-[43px] top-12 w-6 h-6 bg-main-purple rounded-full shadow-[0_0_20px_#6c34d3] group-hover:scale-125 transition-all duration-500"></div>
 
-      <div className="order-1 xl:order-2 shrink-0 relative">
-        <div className="absolute inset-0 bg-main-purple/20 blur-[30px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className="flex flex-col xl:flex-row justify-between items-center xl:items-start gap-10">
+        <div className="flex-1 order-2 xl:order-1 text-center xl:text-left">
+          <span className="text-main-purple font-black text-[1.4rem] tracking-[0.2em] uppercase">{date}</span>
+          <h4 className="text-[2.6rem] font-bold text-white mt-3 leading-tight group-hover:text-main-purple transition-colors">{title}</h4>
+          <p className="text-white/80 text-[1.8rem] font-semibold mt-1">{subtitle}</p>
+          <p className="text-white/50 text-[1.6rem] mt-6 leading-relaxed max-w-[600px]">{desc}</p>
+        </div>
 
-        <div className="relative w-32 h-32 md:w-40 md:h-40 bg-white/5 backdrop-blur-md rounded-[2rem] flex items-center justify-center p-4 border border-white/10 group-hover:border-main-purple/40 group-hover:scale-110 transition-all duration-500 overflow-hidden shadow-2xl">
-          <img
-            src={logo}
-            alt={subtitle}
-            className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-            onError={(e) => { e.target.src = "https://via.placeholder.com/150/6c34d3/ffffff?text=Logo"; }}
-          />
+        <div className="order-1 xl:order-2 shrink-0 relative">
+          <div className="absolute inset-0 bg-main-purple/20 blur-[30px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+          <div className="relative w-32 h-32 md:w-40 md:h-40 bg-white/5 backdrop-blur-md rounded-[2rem] flex items-center justify-center p-4 border border-white/10 group-hover:border-main-purple/40 group-hover:scale-110 transition-all duration-500 overflow-hidden shadow-2xl">
+            {logoFailed ? (
+              <div className="w-full h-full rounded-2xl bg-main-purple/15 flex items-center justify-center">
+                <span className="text-main-purple font-black text-[2.2rem]">
+                  {subtitle.charAt(0)}
+                </span>
+              </div>
+            ) : (
+              <img
+                src={logo}
+                alt={subtitle}
+                className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                onError={() => setLogoFailed(true)}
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Journey;
