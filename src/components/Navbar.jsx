@@ -1,20 +1,23 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
-  const [lang, setLang] = useState('ES');
+  const { t, i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState('Home');
+  const [activeKey, setActiveKey] = useState('home');
   const [scrolled, setScrolled] = useState(false);
   const ticking = useRef(false);
 
+  // key: identificador estable usado para scroll-spy y hrefs (no se traduce).
+  // labelKey: ruta en los JSON de traducción para el texto visible.
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Journey', href: '#education' },
-    { name: 'Certifications', href: '#certifications' },
-    { name: 'Contact', href: '#contact' },
+    { key: 'home', href: '#home', labelKey: 'nav.home' },
+    { key: 'about', href: '#about', labelKey: 'nav.about' },
+    { key: 'skills', href: '#skills', labelKey: 'nav.skills' },
+    { key: 'projects', href: '#projects', labelKey: 'nav.projects' },
+    { key: 'journey', href: '#education', labelKey: 'nav.journey' },
+    { key: 'certifications', href: '#certifications', labelKey: 'nav.certifications' },
+    { key: 'contact', href: '#contact', labelKey: 'nav.contact' },
   ];
 
   const handleScroll = useCallback(() => {
@@ -28,7 +31,7 @@ const Navbar = () => {
       for (const link of navLinks) {
         const section = document.querySelector(link.href);
         if (section && section.offsetTop <= scrollPosition && (section.offsetTop + section.offsetHeight) > scrollPosition) {
-          setActiveLink(link.name);
+          setActiveKey(link.key);
           break;
         }
       }
@@ -40,6 +43,17 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
+
+  // Mantiene <html lang="..."> sincronizado - accesibilidad y SEO.
+  useEffect(() => {
+    document.documentElement.lang = i18n.language.startsWith('en') ? 'en' : 'es';
+  }, [i18n.language]);
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
+  const currentLang = i18n.language.startsWith('en') ? 'en' : 'es';
 
   return (
     <header
@@ -60,27 +74,41 @@ const Navbar = () => {
         >
           {navLinks.map((link) => (
             <a
-              key={link.name}
+              key={link.key}
               href={link.href}
               onClick={(e) => {
                 e.preventDefault();
                 document.querySelector(link.href).scrollIntoView({ behavior: 'smooth' });
                 setIsOpen(false);
               }}
-              className={`text-[1.7rem] font-semibold transition-colors relative group ${activeLink === link.name ? 'text-white' : 'text-text-purple/60 hover:text-white'
+              className={`text-[1.7rem] font-semibold transition-colors relative group ${activeKey === link.key ? 'text-white' : 'text-text-purple/60 hover:text-white'
                 }`}
             >
-              {link.name}
-              <span className={`absolute -bottom-2 left-0 h-[3px] bg-main-purple transition-all duration-300 ${activeLink === link.name ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+              {t(link.labelKey)}
+              <span className={`absolute -bottom-2 left-0 h-[3px] bg-main-purple transition-all duration-300 ${activeKey === link.key ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
             </a>
           ))}
         </nav>
 
         <div className="flex-1 flex justify-end items-center gap-10">
           <div className="flex items-center gap-4">
-            <button onClick={() => setLang('ES')} className={`text-[1.5rem] font-bold transition-colors ${lang === 'ES' ? 'text-main-purple' : 'text-white/40'}`}>ES</button>
+            <button
+              onClick={() => changeLanguage('es')}
+              aria-pressed={currentLang === 'es'}
+              aria-label="Cambiar idioma a Español"
+              className={`text-[1.5rem] font-bold transition-colors ${currentLang === 'es' ? 'text-main-purple' : 'text-white/40 hover:text-white/70'}`}
+            >
+              ES
+            </button>
             <div className="w-px h-6 bg-white/10"></div>
-            <button onClick={() => setLang('EN')} className={`text-[1.5rem] font-bold transition-colors ${lang === 'EN' ? 'text-main-purple' : 'text-white/40'}`}>EN</button>
+            <button
+              onClick={() => changeLanguage('en')}
+              aria-pressed={currentLang === 'en'}
+              aria-label="Switch language to English"
+              className={`text-[1.5rem] font-bold transition-colors ${currentLang === 'en' ? 'text-main-purple' : 'text-white/40 hover:text-white/70'}`}
+            >
+              EN
+            </button>
           </div>
 
           <button className="lg:hidden text-[4rem] text-text-purple" onClick={() => setIsOpen(!isOpen)}>
@@ -92,7 +120,7 @@ const Navbar = () => {
       <div className={`absolute top-28 left-8 right-8 bg-bg-color border border-white/10 rounded-[2.5rem] p-12 transition-all duration-300 lg:hidden ${isOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-4'}`}>
         <div className="flex flex-col gap-8 text-center text-[2rem] font-bold text-white">
           {navLinks.map(link => (
-            <a key={link.name} href={link.href} onClick={() => setIsOpen(false)}>{link.name}</a>
+            <a key={link.key} href={link.href} onClick={() => setIsOpen(false)}>{t(link.labelKey)}</a>
           ))}
         </div>
       </div>

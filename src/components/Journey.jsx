@@ -1,12 +1,15 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Reveal from './Reveal';
 
 const Journey = () => {
+  const { t } = useTranslation();
+
   return (
     <section id="education" className="py-32 px-[7%] bg-bg-color">
       <Reveal className="text-center mb-20">
         <h2 className="text-[5.5rem] md:text-[7.5rem] font-bold text-white">
-          My <span className="gradient-text">Journey</span>
+          {t('journey.titlePart1')} <span className="gradient-text">{t('journey.titlePart2')}</span>
         </h2>
         <div className="w-48 h-[5px] bg-main-purple mx-auto mt-4 rounded-full"></div>
       </Reveal>
@@ -15,33 +18,33 @@ const Journey = () => {
         {/* Educación */}
         <div>
           <h3 className="text-[3rem] font-bold text-white mb-12 flex items-center gap-4">
-            <i className='bx bxs-graduation text-main-purple'></i> Education
+            <i className='bx bxs-graduation text-main-purple'></i> {t('journey.educationTitle')}
           </h3>
           <div className="space-y-8 border-l-2 border-main-purple/30 pl-8">
             <Reveal index={0}>
               <TimelineItem
                 date="2024 - PRESENT"
-                title="Software Development Engineering"
-                subtitle="Universidad Fidélitas"
-                desc="Formación sólida en ingeniería, estructuras de datos y arquitectura de software."
+                title={t('journey.education.fidelitas.title')}
+                subtitle={t('journey.education.fidelitas.subtitle')}
+                desc={t('journey.education.fidelitas.desc')}
                 logo="/assets/logos/fidelitas.webp"
               />
             </Reveal>
             <Reveal index={1}>
               <TimelineItem
                 date="2025 - COMPLETED"
-                title="Back-End Developer"
-                subtitle="Oracle Next Education (ONE G8)"
-                desc="Especialización en soluciones escalables y arquitectura empresarial."
+                title={t('journey.education.oracleOne.title')}
+                subtitle={t('journey.education.oracleOne.subtitle')}
+                desc={t('journey.education.oracleOne.desc')}
                 logo="/assets/logos/oracle-one.webp"
               />
             </Reveal>
             <Reveal index={2}>
               <TimelineItem
                 date="2025 - PRESENT"
-                title="Google Gemini AI Immersion"
-                subtitle="Alura Latam & Google"
-                desc="Dominio de IA generativa aplicada al desarrollo de software real."
+                title={t('journey.education.alura.title')}
+                subtitle={t('journey.education.alura.subtitle')}
+                desc={t('journey.education.alura.desc')}
                 logo="/assets/logos/alura.webp"
               />
             </Reveal>
@@ -51,24 +54,24 @@ const Journey = () => {
         {/* Experiencia */}
         <div>
           <h3 className="text-[3rem] font-bold text-white mb-12 flex items-center gap-4">
-            <i className='bx bxs-briefcase text-main-purple'></i> Experience
+            <i className='bx bxs-briefcase text-main-purple'></i> {t('journey.experienceTitle')}
           </h3>
           <div className="space-y-8 border-l-2 border-main-purple/30 pl-8">
             <Reveal index={0}>
               <TimelineItem
                 date="2023 - 2023"
-                title="Web Development Intern"
-                subtitle="QXD Quality XP Development"
-                desc="Desarrollo full-stack colaborativo usando metodologías ágiles y frameworks modernos."
+                title={t('journey.experience.qxd.title')}
+                subtitle={t('journey.experience.qxd.subtitle')}
+                desc={t('journey.experience.qxd.desc')}
                 logo="/assets/logos/qxd.webp"
               />
             </Reveal>
             <Reveal index={1}>
               <TimelineItem
                 date="2024 - PRESENT"
-                title="Freelance Full-Stack Developer"
-                subtitle="Proyectos Independientes"
-                desc="Creación de soluciones personalizadas y despliegue de aplicaciones web escalables."
+                title={t('journey.experience.freelance.title')}
+                subtitle={t('journey.experience.freelance.subtitle')}
+                desc={t('journey.experience.freelance.desc')}
                 logo="/assets/logos/personal-logo.webp"
               />
             </Reveal>

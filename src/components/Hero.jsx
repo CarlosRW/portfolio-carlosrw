@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Reveal from './Reveal';
 import FillButton from './FillButton';
 
 const Hero = () => {
+  const { t } = useTranslation();
   const [showTooltip, setShowTooltip] = useState(false);
   const email = "carlos.ramirezw23@gmail.com";
 
@@ -45,7 +47,7 @@ const Hero = () => {
 
           <div className="absolute -bottom-5 -left-5 sm:-bottom-6 sm:-left-6 bg-bg-color border border-white/10 rounded-2xl px-5 py-3 shadow-xl flex items-center gap-2.5 z-10">
             <span className="w-2.5 h-2.5 rounded-full bg-main-purple shadow-[0_0_10px_#6c34d3] shrink-0"></span>
-            <span className="text-[1.4rem] font-bold text-text-purple whitespace-nowrap">Software Developer</span>
+            <span className="text-[1.4rem] font-bold text-text-purple whitespace-nowrap">{t('hero.badge')}</span>
           </div>
         </div>
       </Reveal>
@@ -53,19 +55,19 @@ const Hero = () => {
       {/* 2. Contenedor de Texto */}
       <div className="flex-1 order-2 md:order-1 text-center md:text-left flex flex-col items-center md:items-start max-w-260 lg:max-w-300">
         <Reveal as="h3" index={0} className="text-[2.2rem] sm:text-[2.6rem] lg:text-[3.2rem] font-medium text-text-purple/70 tracking-wide">
-          Hola, soy
+          {t('hero.greeting')}
         </Reveal>
 
         <Reveal as="h1" index={1} className="text-[4rem] sm:text-[5rem] md:text-[5.6rem] lg:text-[6.8rem] font-bold leading-[1.1] text-shine mb-6 mt-1">
-          Carlos Ramírez Wong
+          {t('hero.name')}
         </Reveal>
 
         <Reveal as="p" index={2} className="text-[1.9rem] sm:text-[2.1rem] lg:text-[2.3rem] font-semibold text-text-purple mb-4 leading-snug max-w-220">
-          Software Developer · React, Java &amp; IA aplicada
+          {t('hero.role')}
         </Reveal>
 
         <Reveal as="p" index={3} className="text-[1.5rem] sm:text-[1.6rem] lg:text-[1.8rem] mb-8 lg:mb-10 leading-relaxed text-text-purple/70 max-w-220">
-          Diseño y desarrollo aplicaciones web full-stack con foco en performance, arquitectura limpia y experiencias de usuario memorables - desde sitios para negocios hasta plataformas con IA integrada. Actualmente cursando Ingeniería en Desarrollo de Software en Costa Rica.
+          {t('hero.tagline')}
         </Reveal>
 
         <Reveal index={4} className="flex justify-center md:justify-start gap-6 mb-10 lg:mb-12">
@@ -85,7 +87,7 @@ const Hero = () => {
           <div className="relative">
             {showTooltip && (
               <div className="absolute -top-14 left-1/2 -translate-x-1/2 bg-main-purple text-white text-[1.2rem] px-4 py-2 rounded-lg font-bold animate-bounce shadow-lg whitespace-nowrap z-50" role="status" aria-live="polite">
-                ¡Copiado!
+                {t('common.copied')}
               </div>
             )}
             <FillButton
@@ -105,7 +107,7 @@ const Hero = () => {
             download="CV_CarlosRamirezWong.pdf"
             className="relative inline-flex items-center justify-center w-full sm:w-[20rem] h-22 bg-main-purple rounded-lg text-[1.8rem] lg:text-[2rem] text-white font-semibold hover:brightness-110 hover:shadow-[0_0_2rem_rgba(108,52,211,0.5)] hover:-translate-y-1 transition-all duration-300"
           >
-            Descargar CV
+            {t('hero.downloadCv')}
           </a>
 
           <FillButton
@@ -113,7 +115,7 @@ const Hero = () => {
             className="w-full sm:w-[20rem] h-22 items-center justify-center border-2 border-white/15 rounded-lg text-[1.8rem] lg:text-[2rem] text-text-purple font-semibold hover:border-main-purple transition-colors duration-500"
             style={{ '--fill-color': '#6c34d3' }}
           >
-            Proyectos
+            {t('hero.viewProjects')}
           </FillButton>
         </Reveal>
       </div>

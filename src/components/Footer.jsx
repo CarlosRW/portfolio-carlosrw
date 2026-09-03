@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
   const [showTooltip, setShowTooltip] = useState(false);
   const email = "carlos.ramirezw23@gmail.com";
@@ -26,7 +28,7 @@ const Footer = () => {
             onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} 
             className="group flex flex-col items-center gap-4 transition-all"
           >
-            <span className="text-text-purple/30 text-[1.2rem] uppercase tracking-[0.3em] group-hover:text-main-purple transition-colors">Volver</span>
+            <span className="text-text-purple/30 text-[1.2rem] uppercase tracking-[0.3em] group-hover:text-main-purple transition-colors">{t('nav.back')}</span>
             <div className="w-[4.5rem] h-[4.5rem] bg-transparent border-2 border-main-purple rounded-full flex items-center justify-center text-main-purple transition-all duration-500 hover:bg-main-purple hover:text-bg-color hover:shadow-[0_0_1.5rem_#6c34d3]">
               <i className='bx bx-up-arrow-alt text-[2.5rem]'></i>
             </div>
@@ -41,13 +43,13 @@ const Footer = () => {
               Carlos <span className="gradient-text">RW</span>
             </a>
             <p className="text-[1.6rem] text-text-purple/40 font-medium text-center md:text-left">
-              Software Developer creando experiencias digitales excepcionales.
+              {t('footer.tagline')}
             </p>
           </div>
 
           {/* Centro - Redes Sociales (Links Corregidos) */}
           <div className="flex flex-col items-center space-y-8">
-            <span className="text-text-purple/20 text-[1.3rem] uppercase tracking-[0.4em] font-bold">Conectemos</span>
+            <span className="text-text-purple/20 text-[1.3rem] uppercase tracking-[0.4em] font-bold">{t('footer.connect')}</span>
             <div className="flex gap-6">
               {socialLinks.map((social, i) => (
                 <a 
@@ -65,7 +67,7 @@ const Footer = () => {
               <div className="relative">
                 {showTooltip && (
                   <div className="absolute -top-14 left-1/2 -translate-x-1/2 bg-main-purple text-white text-[1.2rem] px-4 py-2 rounded-lg font-bold animate-bounce shadow-lg whitespace-nowrap z-50" role="status" aria-live="polite">
-                    ¡Copiado!
+                    {t('common.copied')}
                   </div>
                 )}
                 <button 
@@ -85,16 +87,16 @@ const Footer = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-main-purple opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-3 w-3 bg-main-purple"></span>
                 </span>
-                <span className="text-main-purple font-bold text-[1.3rem] tracking-widest">Disponible para trabajar</span>
+                <span className="text-main-purple font-bold text-[1.3rem] tracking-widest">{t('footer.available')}</span>
              </div>
-             <p className="text-[1.4rem] text-text-purple/40 font-medium italic">San José, Costa Rica 🇨🇷</p>
+             <p className="text-[1.4rem] text-text-purple/40 font-medium italic">{t('footer.location')}</p>
           </div>
         </div>
         
         {/* Footer Bottom */}
         <div className="pt-12 flex flex-col md:flex-row justify-between items-center gap-6 opacity-30 uppercase tracking-[0.2em] text-[1.1rem]">
-          <p>© {currentYear} Todos los derechos reservados</p>
-          <p>Hecho con 💜 por Carlos Eduardo Ramírez Wong</p>
+          <p>© {currentYear} {t('footer.rights')}</p>
+          <p>{t('footer.madeWith')}</p>
         </div>
       </div>
     </footer>

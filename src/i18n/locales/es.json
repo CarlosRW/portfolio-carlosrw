@@ -1,0 +1,258 @@
+{
+  "meta": {
+    "description": "Carlos Ramírez Wong - Software Developer especializado en React, Java e IA aplicada. Aplicaciones web full-stack, SaaS y experiencias interactivas con foco en performance y diseño."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "Sobre mí",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "journey": "Trayectoria",
+    "certifications": "Certificaciones",
+    "contact": "Contacto",
+    "back": "Volver"
+  },
+  "common": {
+    "copied": "¡Copiado!"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "name": "Carlos Ramírez Wong",
+    "role": "Software Developer · React, Java & IA aplicada",
+    "tagline": "Diseño y desarrollo aplicaciones web full-stack con foco en performance, arquitectura limpia y experiencias de usuario memorables - desde sitios para negocios hasta plataformas con IA integrada. Actualmente cursando Ingeniería en Desarrollo de Software en Costa Rica.",
+    "badge": "Software Developer",
+    "downloadCv": "Descargar CV",
+    "viewProjects": "Proyectos"
+  },
+  "about": {
+    "titlePart1": "Sobre",
+    "titlePart2": "Mi",
+    "description": "Soy un estudiante de Ingeniería en Desarrollo de Software apasionado por crear experiencias digitales limpias, intuitivas y responsivas. Mi enfoque se centra en transformar ideas en interfaces fluidas a través de un profundo entendimiento de las necesidades de los usuarios y un diseño visual coherente.",
+    "approachTitle1": "Mi",
+    "approachTitle2": "Enfoque",
+    "approachItems": [
+      "Entender usuarios y metas",
+      "Crear layouts UI limpios",
+      "Experiencias responsivas"
+    ],
+    "statsLabels": [
+      "PROYECTOS COMPLETADOS",
+      "CERTIFICACIONES OBTENIDAS",
+      "JUEGOS/DEMOS DESARROLLADOS"
+    ]
+  },
+  "skills": {
+    "titlePart1": "Tech",
+    "titlePart2": "Stack",
+    "tagline": "Las herramientas que utilizo para dar vida a ideas digitales.",
+    "categories": {
+      "frontend": "Frontend Mastery",
+      "backend": "Backend & Cloud",
+      "data": "Databases & Ops"
+    }
+  },
+  "journey": {
+    "titlePart1": "My",
+    "titlePart2": "Journey",
+    "educationTitle": "Education",
+    "experienceTitle": "Experience",
+    "education": {
+      "fidelitas": {
+        "title": "Software Development Engineering",
+        "subtitle": "Universidad Fidélitas",
+        "desc": "Formación sólida en ingeniería, estructuras de datos y arquitectura de software."
+      },
+      "oracleOne": {
+        "title": "Back-End Developer",
+        "subtitle": "Oracle Next Education (ONE G8)",
+        "desc": "Especialización en soluciones escalables y arquitectura empresarial."
+      },
+      "alura": {
+        "title": "Google Gemini AI Immersion",
+        "subtitle": "Alura Latam & Google",
+        "desc": "Dominio de IA generativa aplicada al desarrollo de software real."
+      }
+    },
+    "experience": {
+      "qxd": {
+        "title": "Web Development Intern",
+        "subtitle": "QXD Quality XP Development",
+        "desc": "Desarrollo full-stack colaborativo usando metodologías ágiles y frameworks modernos."
+      },
+      "freelance": {
+        "title": "Freelance Full-Stack Developer",
+        "subtitle": "Proyectos Independientes",
+        "desc": "Creación de soluciones personalizadas y despliegue de aplicaciones web escalables."
+      }
+    }
+  },
+  "services": {
+    "titlePart1": "Mis",
+    "titlePart2": "Servicios",
+    "tagline": "Diseñando soluciones digitales escalables y modernas.",
+    "items": {
+      "fullstack": {
+        "title": "Full-Stack Development",
+        "description": "Creación de aplicaciones web robustas usando tecnologías modernas con un enfoque en código limpio y escalabilidad."
+      },
+      "uiux": {
+        "title": "UI/UX Design",
+        "description": "Interfaces intuitivas y responsivas centradas en el usuario, manteniendo una jerarquía visual clara y moderna."
+      },
+      "gamedev": {
+        "title": "Game Development",
+        "description": "Diseño de experiencias interactivas y mecánicas de juego \"cozy\" utilizando motores como Godot y Unity."
+      },
+      "ai": {
+        "title": "AI & Machine Learning",
+        "description": "Integración de modelos de IA y automatización de procesos para optimizar la experiencia del usuario y la eficiencia de datos."
+      }
+    }
+  },
+  "certifications": {
+    "titlePart1": "Mis",
+    "titlePart2": "Certificaciones",
+    "tagline": "Formación validada por instituciones y programas reconocidos.",
+    "pending": "Certificado pendiente",
+    "view": "Ver certificado",
+    "viewCredential": "Ver credencial"
+  },
+  "projects": {
+    "titlePart1": "Mis",
+    "titlePart2": "Proyectos",
+    "filters": {
+      "all": "Todos",
+      "featured": "Destacados",
+      "university": "Universidad",
+      "games": "Juegos"
+    },
+    "viewCaseStudy": "Ver caso de estudio",
+    "hideCaseStudy": "Ocultar caso de estudio",
+    "problem": "Problema",
+    "solution": "Solución técnica",
+    "result": "Resultado",
+    "viewDemo": "Ver demo",
+    "viewCode": "Ver código",
+    "exploreMore": "Explorar más proyectos",
+    "items": {
+      "zumi": {
+        "title": "Zumi - Control de Gastos del Hogar",
+        "badge": "En Desarrollo",
+        "type": "SaaS · Full-Stack Development",
+        "description": "Aplicación para llevar el control de los gastos del hogar: presupuesto compartido y seguimiento de gastos en tiempo real.",
+        "caseStudy": {
+          "problem": "Las familias pierden visibilidad de sus gastos compartidos cuando cada persona registra sus compras por separado, sin un presupuesto en común y sin saber en tiempo real cuánto queda disponible.",
+          "solution": "Estoy construyendo Zumi como una app centrada en presupuesto de hogar: registro rápido de gastos, categorización y una vista compartida entre los miembros de la familia. Arquitectura sobre Next.js con foco en tiempos de carga bajos desde el día uno.",
+          "result": "En fase de desarrollo activo, cercano a su primer deploy público. Próximas métricas a publicar: Lighthouse score, tiempo de carga inicial y arquitectura de datos."
+        }
+      },
+      "moki": {
+        "title": "Moki - Tu Alacena, Sin Desperdicio",
+        "badge": "En Desarrollo",
+        "type": "SaaS · IA Aplicada",
+        "description": "Gestor de alacena que reduce el desperdicio de comida y genera recetas con IA a partir de lo que ya tienes en casa.",
+        "caseStudy": {
+          "problem": "Gran parte del desperdicio de comida en casa ocurre porque las personas no saben qué tienen disponible ni qué cocinar con ello antes de que se venza.",
+          "solution": "Moki lleva el inventario de tu alacena y usa un modelo de IA generativa para sugerir recetas concretas con los ingredientes que ya tienes, priorizando lo próximo a vencer. Login con Google para reducir fricción de registro.",
+          "result": "En fase de desarrollo activo. Próximas métricas a publicar: precisión de las recomendaciones de recetas y tiempo de respuesta del modelo."
+        }
+      },
+      "fince": {
+        "title": "FINCE: Gestor de Finanzas con IA",
+        "badge": "Proyecto Personal",
+        "type": "Full-Stack Development",
+        "description": "Plataforma inteligente de gestión financiera que utiliza IA para analizar patrones de gasto y generar recomendaciones de presupuesto personalizadas.",
+        "caseStudy": {
+          "problem": "Los usuarios sin educación financiera formal no logran identificar patrones de gasto ni recibir recomendaciones accionables sobre su presupuesto mensual.",
+          "solution": "Integré la API de Groq AI para procesar transacciones y generar recomendaciones de presupuesto personalizadas, con PostgreSQL como capa de persistencia y un dashboard en React para visualizar patrones de gasto en tiempo real.",
+          "result": "Proyecto personal funcional y desplegado. Stack pensado para escalar: separación clara entre frontend, lógica de negocio y capa de IA."
+        }
+      },
+      "pizza": {
+        "title": "Happy Pizza - Sitio Web",
+        "badge": "Proyecto Personal",
+        "type": "Full-Stack Development",
+        "description": "Sitio web de restaurante con diseño moderno, menú interactivo y sistema de pedidos integrado con WhatsApp.",
+        "caseStudy": {
+          "problem": "Los restaurantes pequeños pierden pedidos cuando su único canal de venta es el teléfono: alta fricción, sin menú visual y sin disponibilidad 24/7.",
+          "solution": "Diseñé un sitio con menú interactivo y checkout simplificado que redirige el pedido armado directamente a WhatsApp, eliminando la necesidad de dictar el pedido por teléfono.",
+          "result": "Sitio en producción, responsive, con foco en velocidad de carga y claridad del menú para reducir el abandono antes de completar el pedido."
+        }
+      },
+      "coffeelab": {
+        "title": "Coffee.Lab",
+        "badge": "Proyecto Personal",
+        "type": "Full-Stack Development",
+        "description": "Sitio web de cafeteria con diseño caricaturesco y menú interactivo."
+      },
+      "catgame": {
+        "title": "Cat Queen Game",
+        "badge": "Proyecto Personal",
+        "type": "Game Development",
+        "description": "Juego de navegador con temática de gatos y reina, con mecánicas de juego y niveles."
+      },
+      "agrodirecto": {
+        "title": "AgroDirectoCR",
+        "badge": "Proyecto Académico",
+        "type": "Proyecto Universitario",
+        "description": "Plataforma web para conectar directamente a productores agrícolas con consumidores finales en Costa Rica."
+      },
+      "agenteia": {
+        "title": "Agente IA",
+        "badge": "Challenge Alura",
+        "type": "AI & Machine Learning",
+        "description": "Plataforma web que integra un agente de IA para ayudar a los usuarios a encontrar información y recursos sobre diversos temas, utilizando la API de Groq AI."
+      },
+      "breadgame": {
+        "title": "Spread the Bread",
+        "badge": "Videojuego",
+        "type": "Game Jam Project",
+        "description": "Videojuego inspirado en Fruit Ninja, con scoreboard y sistema de puntuación. Hecho en 48 horas con Godot."
+      },
+      "pawsgame": {
+        "title": "Paws Together",
+        "badge": "Videojuego",
+        "type": "Game Jam Project",
+        "description": "Videojuego cooperativo de plataformas y puzles centrado en el trabajo en equipo y la comunicación."
+      }
+    }
+  },
+  "contact": {
+    "titlePart1": "Contácta",
+    "titlePart2": "me",
+    "heading": "¡Trabajemos juntos!",
+    "intro": "Siempre estoy abierto a explorar nuevas oportunidades y desafíos donde pueda aportar valor y seguir creciendo profesionalmente. Si buscas a alguien comprometido, con ganas de aprender y contribuir a tu equipo, ¡me encantaría saber de ti!",
+    "whatsappCta": "Escríbeme por WhatsApp",
+    "whatsappMessage": "Hola Carlos, vi tu portafolio y me gustaría conversar sobre un proyecto.",
+    "emailLabel": "Correo",
+    "phoneLabel": "Teléfono",
+    "locationLabel": "Ubicación",
+    "location": "San José, Costa Rica 🇨🇷",
+    "formTitle": "Cuéntame de tu proyecto",
+    "formSubtitle": "Completa el formulario y se abrirá tu cliente de correo con el mensaje listo para enviar.",
+    "formName": "Nombre",
+    "formNamePlaceholder": "Tu nombre",
+    "formEmail": "Correo",
+    "formEmailPlaceholder": "tu@correo.com",
+    "formMessage": "Mensaje",
+    "formMessagePlaceholder": "Cuéntame qué necesitas...",
+    "formSubmit": "Enviar mensaje",
+    "mailSubject": "Contacto desde el portafolio",
+    "mailNewMessage": "Nuevo mensaje",
+    "mailFieldName": "Nombre",
+    "mailFieldEmail": "Email",
+    "mailFieldMessage": "Mensaje"
+  },
+  "footer": {
+    "tagline": "Software Developer creando experiencias digitales excepcionales.",
+    "connect": "Conectemos",
+    "available": "Disponible para trabajar",
+    "location": "San José, Costa Rica 🇨🇷",
+    "rights": "Todos los derechos reservados",
+    "madeWith": "Hecho con 💜 por Carlos Eduardo Ramírez Wong"
+  },
+  "whatsappFloat": {
+    "ariaLabel": "Escríbeme por WhatsApp",
+    "message": "Hola Carlos, vi tu portafolio y me gustaría conversar sobre un proyecto."
+  }
+}

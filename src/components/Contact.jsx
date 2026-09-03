@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Reveal from './Reveal';
 import FillButton from './FillButton';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [showTooltip, setShowTooltip] = useState(false);
   const email = "carlos.ramirezw23@gmail.com";
   const phone = "+506 83933478";
@@ -22,16 +24,16 @@ const Contact = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Contacto desde el portafolio — ${form.name || 'Nuevo mensaje'}`);
+    const subject = encodeURIComponent(
+      `${t('contact.mailSubject')} - ${form.name || t('contact.mailNewMessage')}`
+    );
     const body = encodeURIComponent(
-      `Nombre: ${form.name}\nEmail: ${form.email}\n\nMensaje:\n${form.message}`
+      `${t('contact.mailFieldName')}: ${form.name}\n${t('contact.mailFieldEmail')}: ${form.email}\n\n${t('contact.mailFieldMessage')}:\n${form.message}`
     );
     window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
   };
 
-  const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-    'Hola Carlos, vi tu portafolio y me gustaría conversar sobre un proyecto.'
-  )}`;
+  const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t('contact.whatsappMessage'))}`;
 
   const socialLinks = [
     { name: 'LinkedIn', icon: 'bxl-linkedin', url: 'https://linkedin.com/in/carlosrw' },
@@ -45,7 +47,7 @@ const Contact = () => {
     >
       <Reveal className="text-center mb-24">
         <h2 className="text-[5.5rem] md:text-[7.5rem] font-bold text-white tracking-tight">
-          Contácta<span className="gradient-text">me</span>
+          {t('contact.titlePart1')}<span className="gradient-text">{t('contact.titlePart2')}</span>
         </h2>
         <div className="w-48 h-[5px] bg-main-purple mx-auto mt-4 rounded-full shadow-[0_0_10px_#6c34d3]"></div>
       </Reveal>
@@ -61,10 +63,10 @@ const Contact = () => {
 
             <div className="space-y-6">
               <h3 className="text-[3.2rem] md:text-[3.8rem] font-bold text-white tracking-tight">
-                ¡Trabajemos juntos!
+                {t('contact.heading')}
               </h3>
               <p className="text-[1.7rem] text-text-purple/80 leading-relaxed font-medium">
-                Siempre estoy abierto a explorar nuevas oportunidades y desafíos donde pueda aportar valor y seguir creciendo profesionalmente. Si buscas a alguien comprometido, con ganas de aprender y contribuir a tu equipo, ¡me encantaría saber de ti!
+                {t('contact.intro')}
               </p>
             </div>
 
@@ -76,7 +78,7 @@ const Contact = () => {
               className="w-full flex items-center justify-center gap-3 py-5 bg-[#25D366] rounded-2xl text-[1.8rem] text-[#08140c] font-bold hover:brightness-105 hover:-translate-y-1 transition-all duration-300 shadow-[0_10px_30px_rgba(37,211,102,0.25)]"
             >
               <i className='bx bxl-whatsapp text-[2.4rem]'></i>
-              Escríbeme por WhatsApp
+              {t('contact.whatsappCta')}
             </a>
 
             <div className="w-full space-y-8">
@@ -88,10 +90,10 @@ const Contact = () => {
                 <div className="flex-1 relative">
                   {showTooltip && (
                     <div className="absolute -top-12 left-0 bg-main-purple text-white text-[1.2rem] px-5 py-2 rounded-xl font-bold animate-bounce shadow-lg" role="status" aria-live="polite">
-                      ¡Copiado!
+                      {t('common.copied')}
                     </div>
                   )}
-                  <h4 className="text-[1.4rem] text-main-purple font-black tracking-widest uppercase">Correo</h4>
+                  <h4 className="text-[1.4rem] text-main-purple font-black tracking-widest uppercase">{t('contact.emailLabel')}</h4>
                   <p className="text-[1.6rem] md:text-[1.8rem] text-white font-semibold tracking-tight hover:text-main-purple transition-colors truncate">
                     {email}
                   </p>
@@ -103,7 +105,7 @@ const Contact = () => {
                   <i className='bx bx-phone text-[2.8rem] text-main-purple group-hover/phone:text-white transition-colors'></i>
                 </div>
                 <div>
-                  <h4 className="text-[1.4rem] text-main-purple font-black tracking-widest uppercase">Teléfono</h4>
+                  <h4 className="text-[1.4rem] text-main-purple font-black tracking-widest uppercase">{t('contact.phoneLabel')}</h4>
                   <p className="text-[1.6rem] md:text-[1.8rem] text-white font-semibold tracking-tight group-hover:text-main-purple transition-colors">
                     {phone}
                   </p>
@@ -115,9 +117,9 @@ const Contact = () => {
                   <i className='bx bx-map text-[2.8rem] text-main-purple'></i>
                 </div>
                 <div>
-                  <h4 className="text-[1.4rem] text-main-purple font-black tracking-widest uppercase">Ubicación</h4>
+                  <h4 className="text-[1.4rem] text-main-purple font-black tracking-widest uppercase">{t('contact.locationLabel')}</h4>
                   <p className="text-[1.6rem] md:text-[1.8rem] text-white font-semibold tracking-tight">
-                    San José, Costa Rica 🇨🇷
+                    {t('contact.location')}
                   </p>
                 </div>
               </div>
@@ -149,16 +151,16 @@ const Contact = () => {
           <form onSubmit={handleFormSubmit} className="relative z-10 flex flex-col gap-7 h-full">
             <div>
               <h3 className="text-[2.6rem] md:text-[3rem] font-bold text-white tracking-tight mb-2">
-                Cuéntame de tu proyecto
+                {t('contact.formTitle')}
               </h3>
               <p className="text-[1.5rem] text-text-purple/60 leading-relaxed">
-                Completa el formulario y se abrirá tu cliente de correo con el mensaje listo para enviar.
+                {t('contact.formSubtitle')}
               </p>
             </div>
 
             <div className="flex flex-col gap-2">
               <label htmlFor="contact-name" className="text-[1.3rem] text-main-purple font-black tracking-widest uppercase">
-                Nombre
+                {t('contact.formName')}
               </label>
               <input
                 id="contact-name"
@@ -167,14 +169,14 @@ const Contact = () => {
                 required
                 value={form.name}
                 onChange={handleFormChange}
-                placeholder="Tu nombre"
+                placeholder={t('contact.formNamePlaceholder')}
                 className="w-full bg-bg-color/60 border border-white/10 rounded-xl px-6 py-4 text-[1.6rem] text-white placeholder:text-text-purple/30 focus:outline-none focus:border-main-purple focus:ring-2 focus:ring-main-purple/30 transition-all"
               />
             </div>
 
             <div className="flex flex-col gap-2">
               <label htmlFor="contact-email" className="text-[1.3rem] text-main-purple font-black tracking-widest uppercase">
-                Correo
+                {t('contact.formEmail')}
               </label>
               <input
                 id="contact-email"
@@ -183,14 +185,14 @@ const Contact = () => {
                 required
                 value={form.email}
                 onChange={handleFormChange}
-                placeholder="tu@correo.com"
+                placeholder={t('contact.formEmailPlaceholder')}
                 className="w-full bg-bg-color/60 border border-white/10 rounded-xl px-6 py-4 text-[1.6rem] text-white placeholder:text-text-purple/30 focus:outline-none focus:border-main-purple focus:ring-2 focus:ring-main-purple/30 transition-all"
               />
             </div>
 
             <div className="flex flex-col gap-2 flex-1">
               <label htmlFor="contact-message" className="text-[1.3rem] text-main-purple font-black tracking-widest uppercase">
-                Mensaje
+                {t('contact.formMessage')}
               </label>
               <textarea
                 id="contact-message"
@@ -198,7 +200,7 @@ const Contact = () => {
                 required
                 value={form.message}
                 onChange={handleFormChange}
-                placeholder="Cuéntame qué necesitas..."
+                placeholder={t('contact.formMessagePlaceholder')}
                 rows={4}
                 className="w-full flex-1 bg-bg-color/60 border border-white/10 rounded-xl px-6 py-4 text-[1.6rem] text-white placeholder:text-text-purple/30 focus:outline-none focus:border-main-purple focus:ring-2 focus:ring-main-purple/30 transition-all resize-none"
               />
@@ -209,7 +211,7 @@ const Contact = () => {
               className="w-full flex items-center justify-center gap-3 py-5 bg-main-purple rounded-2xl text-[1.8rem] text-white font-bold hover:brightness-110 hover:shadow-[0_0_2rem_rgba(108,52,211,0.5)] hover:-translate-y-1 transition-all duration-300"
             >
               <i className='bx bx-send text-[2.2rem]'></i>
-              Enviar mensaje
+              {t('contact.formSubmit')}
             </button>
           </form>
         </Reveal>

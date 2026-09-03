@@ -1,0 +1,258 @@
+{
+  "meta": {
+    "description": "Carlos Ramírez Wong - Software Developer specialized in React, Java and applied AI. Full-stack web apps, SaaS products, and interactive experiences focused on performance and design."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "journey": "Journey",
+    "certifications": "Certifications",
+    "contact": "Contact",
+    "back": "Back to top"
+  },
+  "common": {
+    "copied": "Copied!"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Carlos Ramírez Wong",
+    "role": "Software Developer · React, Java & Applied AI",
+    "tagline": "I design and build full-stack web applications focused on performance, clean architecture, and memorable user experiences - from business websites to AI-powered platforms. Currently pursuing a degree in Software Development Engineering in Costa Rica.",
+    "badge": "Software Developer",
+    "downloadCv": "Download CV",
+    "viewProjects": "Projects"
+  },
+  "about": {
+    "titlePart1": "About",
+    "titlePart2": "Me",
+    "description": "I'm a Software Development Engineering student passionate about building clean, intuitive, and responsive digital experiences. My focus is turning ideas into fluid interfaces through a deep understanding of user needs and coherent visual design.",
+    "approachTitle1": "My",
+    "approachTitle2": "Approach",
+    "approachItems": [
+      "Understand users and goals",
+      "Build clean UI layouts",
+      "Responsive experiences"
+    ],
+    "statsLabels": [
+      "PROJECTS COMPLETED",
+      "CERTIFICATIONS EARNED",
+      "GAMES/DEMOS BUILT"
+    ]
+  },
+  "skills": {
+    "titlePart1": "Tech",
+    "titlePart2": "Stack",
+    "tagline": "The tools I use to bring digital ideas to life.",
+    "categories": {
+      "frontend": "Frontend Mastery",
+      "backend": "Backend & Cloud",
+      "data": "Databases & Ops"
+    }
+  },
+  "journey": {
+    "titlePart1": "My",
+    "titlePart2": "Journey",
+    "educationTitle": "Education",
+    "experienceTitle": "Experience",
+    "education": {
+      "fidelitas": {
+        "title": "Software Development Engineering",
+        "subtitle": "Universidad Fidélitas",
+        "desc": "Solid foundation in engineering, data structures, and software architecture."
+      },
+      "oracleOne": {
+        "title": "Back-End Developer",
+        "subtitle": "Oracle Next Education (ONE G8)",
+        "desc": "Specialization in scalable solutions and enterprise architecture."
+      },
+      "alura": {
+        "title": "Google Gemini AI Immersion",
+        "subtitle": "Alura Latam & Google",
+        "desc": "Hands-on mastery of generative AI applied to real software development."
+      }
+    },
+    "experience": {
+      "qxd": {
+        "title": "Web Development Intern",
+        "subtitle": "QXD Quality XP Development",
+        "desc": "Collaborative full-stack development using agile methodologies and modern frameworks."
+      },
+      "freelance": {
+        "title": "Freelance Full-Stack Developer",
+        "subtitle": "Independent Projects",
+        "desc": "Building custom solutions and deploying scalable web applications."
+      }
+    }
+  },
+  "services": {
+    "titlePart1": "My",
+    "titlePart2": "Services",
+    "tagline": "Designing scalable, modern digital solutions.",
+    "items": {
+      "fullstack": {
+        "title": "Full-Stack Development",
+        "description": "Building robust web applications with modern technologies, with a focus on clean code and scalability."
+      },
+      "uiux": {
+        "title": "UI/UX Design",
+        "description": "Intuitive, user-centered, responsive interfaces with a clear and modern visual hierarchy."
+      },
+      "gamedev": {
+        "title": "Game Development",
+        "description": "Designing interactive experiences and \"cozy\" game mechanics using engines like Godot and Unity."
+      },
+      "ai": {
+        "title": "AI & Machine Learning",
+        "description": "Integrating AI models and automating processes to improve user experience and data efficiency."
+      }
+    }
+  },
+  "certifications": {
+    "titlePart1": "My",
+    "titlePart2": "Certifications",
+    "tagline": "Training validated by recognized institutions and programs.",
+    "pending": "Certificate pending",
+    "view": "View certificate",
+    "viewCredential": "View credential"
+  },
+  "projects": {
+    "titlePart1": "My",
+    "titlePart2": "Projects",
+    "filters": {
+      "all": "All",
+      "featured": "Featured",
+      "university": "University",
+      "games": "Games"
+    },
+    "viewCaseStudy": "View case study",
+    "hideCaseStudy": "Hide case study",
+    "problem": "Problem",
+    "solution": "Technical solution",
+    "result": "Result",
+    "viewDemo": "View demo",
+    "viewCode": "View code",
+    "exploreMore": "Explore more projects",
+    "items": {
+      "zumi": {
+        "title": "Zumi - Household Expense Tracker",
+        "badge": "In Development",
+        "type": "SaaS · Full-Stack Development",
+        "description": "An app to track household expenses: shared budgeting and real-time spending tracking.",
+        "caseStudy": {
+          "problem": "Families lose visibility over shared expenses when each person logs purchases separately, with no shared budget and no real-time view of what's left to spend.",
+          "solution": "I'm building Zumi as a household-budgeting app: fast expense logging, categorization, and a shared view across family members. Built on Next.js with a focus on low load times from day one.",
+          "result": "Actively in development, approaching its first public deploy. Metrics to publish soon: Lighthouse score, initial load time, and data architecture."
+        }
+      },
+      "moki": {
+        "title": "Moki - Your Pantry, Zero Waste",
+        "badge": "In Development",
+        "type": "SaaS · Applied AI",
+        "description": "A pantry management app that reduces food waste and generates AI-powered recipes from what you already have at home.",
+        "caseStudy": {
+          "problem": "A large share of household food waste happens because people don't know what they have on hand or what to cook with it before it expires.",
+          "solution": "Moki tracks your pantry inventory and uses a generative AI model to suggest concrete recipes using ingredients you already have, prioritizing what's closest to expiring. Google login reduces signup friction.",
+          "result": "Actively in development. Metrics to publish soon: recipe recommendation accuracy and model response time."
+        }
+      },
+      "fince": {
+        "title": "FINCE: AI-Powered Finance Manager",
+        "badge": "Personal Project",
+        "type": "Full-Stack Development",
+        "description": "An intelligent finance management platform that uses AI to analyze spending patterns and generate personalized budget recommendations.",
+        "caseStudy": {
+          "problem": "Users without formal financial education struggle to identify spending patterns or get actionable recommendations for their monthly budget.",
+          "solution": "I integrated the Groq AI API to process transactions and generate personalized budget recommendations, with PostgreSQL as the persistence layer and a React dashboard to visualize spending patterns in real time.",
+          "result": "A functional, deployed personal project. The stack is built to scale, with a clear separation between frontend, business logic, and the AI layer."
+        }
+      },
+      "pizza": {
+        "title": "Happy Pizza - Website",
+        "badge": "Personal Project",
+        "type": "Full-Stack Development",
+        "description": "A restaurant website with a modern design, interactive menu, and WhatsApp-integrated ordering system.",
+        "caseStudy": {
+          "problem": "Small restaurants lose orders when their only sales channel is the phone: high friction, no visual menu, and no 24/7 availability.",
+          "solution": "I designed a site with an interactive menu and a simplified checkout that sends the completed order straight to WhatsApp, removing the need to dictate an order over the phone.",
+          "result": "Live in production, fully responsive, built with a focus on load speed and menu clarity to reduce drop-off before completing an order."
+        }
+      },
+      "coffeelab": {
+        "title": "Coffee.Lab",
+        "badge": "Personal Project",
+        "type": "Full-Stack Development",
+        "description": "A cafe website with a cartoon-style design and an interactive menu."
+      },
+      "catgame": {
+        "title": "Cat Queen Game",
+        "badge": "Personal Project",
+        "type": "Game Development",
+        "description": "A browser game with a cat-and-queen theme, featuring game mechanics and levels."
+      },
+      "agrodirecto": {
+        "title": "AgroDirectoCR",
+        "badge": "Academic Project",
+        "type": "University Project",
+        "description": "A web platform connecting agricultural producers directly with end consumers in Costa Rica."
+      },
+      "agenteia": {
+        "title": "AI Agent",
+        "badge": "Alura Challenge",
+        "type": "AI & Machine Learning",
+        "description": "A web platform that integrates an AI agent to help users find information and resources on a range of topics, using the Groq AI API."
+      },
+      "breadgame": {
+        "title": "Spread the Bread",
+        "badge": "Video Game",
+        "type": "Game Jam Project",
+        "description": "A Fruit Ninja-inspired game with a scoreboard and scoring system. Built in 48 hours with Godot."
+      },
+      "pawsgame": {
+        "title": "Paws Together",
+        "badge": "Video Game",
+        "type": "Game Jam Project",
+        "description": "A cooperative platformer and puzzle game centered on teamwork and communication."
+      }
+    }
+  },
+  "contact": {
+    "titlePart1": "Get In",
+    "titlePart2": "Touch",
+    "heading": "Let's work together!",
+    "intro": "I'm always open to exploring new opportunities and challenges where I can add value and keep growing professionally. If you're looking for someone committed, eager to learn, and ready to contribute to your team, I'd love to hear from you!",
+    "whatsappCta": "Message me on WhatsApp",
+    "whatsappMessage": "Hi Carlos, I saw your portfolio and would like to talk about a project.",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone",
+    "locationLabel": "Location",
+    "location": "San José, Costa Rica 🇨🇷",
+    "formTitle": "Tell me about your project",
+    "formSubtitle": "Fill out the form and your email client will open with the message ready to send.",
+    "formName": "Name",
+    "formNamePlaceholder": "Your name",
+    "formEmail": "Email",
+    "formEmailPlaceholder": "you@email.com",
+    "formMessage": "Message",
+    "formMessagePlaceholder": "Tell me what you need...",
+    "formSubmit": "Send message",
+    "mailSubject": "Contact from portfolio",
+    "mailNewMessage": "New message",
+    "mailFieldName": "Name",
+    "mailFieldEmail": "Email",
+    "mailFieldMessage": "Message"
+  },
+  "footer": {
+    "tagline": "Software Developer creating exceptional digital experiences.",
+    "connect": "Let's Connect",
+    "available": "Available for work",
+    "location": "San José, Costa Rica 🇨🇷",
+    "rights": "All rights reserved",
+    "madeWith": "Made with 💜 by Carlos Eduardo Ramírez Wong"
+  },
+  "whatsappFloat": {
+    "ariaLabel": "Message me on WhatsApp",
+    "message": "Hi Carlos, I saw your portfolio and would like to talk about a project."
+  }
+}

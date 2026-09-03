@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Reveal from './Reveal';
 import SpotlightCard from './SpotlightCard';
 
@@ -46,15 +47,17 @@ const certifications = [
 ];
 
 const Certifications = () => {
+    const { t } = useTranslation();
+
     return (
         <section className="py-32 px-[7%] bg-secondary-purple/5" id="certifications">
             <Reveal className="text-center mb-20">
                 <h2 className="text-[5.5rem] md:text-[7.5rem] font-bold text-text-purple">
-                    Mis <span className="gradient-text">Certificaciones</span>
+                    {t('certifications.titlePart1')} <span className="gradient-text">{t('certifications.titlePart2')}</span>
                 </h2>
                 <div className="w-48 h-[5px] bg-main-purple mx-auto mt-4 rounded-full"></div>
                 <p className="text-[1.8rem] text-text-purple/60 mt-6 font-medium">
-                    Formación validada por instituciones y programas reconocidos.
+                    {t('certifications.tagline')}
                 </p>
             </Reveal>
 
@@ -70,6 +73,7 @@ const Certifications = () => {
 };
 
 const CertCard = ({ cert }) => {
+    const { t } = useTranslation();
     const [imageFailed, setImageFailed] = useState(false);
     const [logoFailed, setLogoFailed] = useState(false);
 
@@ -85,12 +89,12 @@ const CertCard = ({ cert }) => {
                 {imageFailed ? (
                     <div className="w-full h-full flex flex-col items-center justify-center gap-3 text-text-purple/30">
                         <i className='bx bxs-certification text-[5rem]'></i>
-                        <span className="text-[1.3rem] font-bold uppercase tracking-widest">Certificado pendiente</span>
+                        <span className="text-[1.3rem] font-bold uppercase tracking-widest">{t('certifications.pending')}</span>
                     </div>
                 ) : (
                     <img
                         src={cert.image}
-                        alt={`Certificado: ${cert.title}`}
+                        alt={`${t('certifications.view')}: ${cert.title}`}
                         loading="lazy"
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         onError={() => setImageFailed(true)}
@@ -99,7 +103,7 @@ const CertCard = ({ cert }) => {
 
                 <div className="absolute inset-0 bg-bg-color/0 group-hover:bg-bg-color/60 transition-all duration-500 flex items-center justify-center">
                     <span className="opacity-0 group-hover:opacity-100 -translate-y-2 group-hover:translate-y-0 transition-all duration-500 flex items-center gap-2 px-6 py-3 bg-main-purple rounded-full text-white text-[1.3rem] font-bold">
-                        <i className='bx bx-zoom-in text-[1.8rem]'></i> Ver certificado
+                        <i className='bx bx-zoom-in text-[1.8rem]'></i> {t('certifications.view')}
                     </span>
                 </div>
 
@@ -140,7 +144,7 @@ const CertCard = ({ cert }) => {
                     rel="noopener noreferrer"
                     className="mt-auto flex items-center gap-2 text-main-purple text-[1.35rem] font-bold hover:text-white transition-colors"
                 >
-                    Ver credencial
+                    {t('certifications.viewCredential')}
                     <i className='bx bx-link-external text-[1.5rem]'></i>
                 </a>
             </div>
